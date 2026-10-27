@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet SVT Cycle 4 - Nouveautés & Comparatif Interactif</title>
+    <style>
+        :root {
+            --primary: #1e5f74;
+            --primary-light: #e8f4f8;
+            --primary-dark: #133b49;
+            --secondary: #2d9596;
+            --accent: #f08a5d;
+            --accent-light: #fff2ec;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --border-hover: #cbd5e1;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --tag-geo: #0284c7;
+            --tag-bio: #059669;
+            --tag-sante: #e11d48;
+            --tag-methode: #7c3aed;
+            --shadow: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.04);
+            --radius: 12px;
+            --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        [data-theme="dark"] {
+            --primary: #38bdf8;
+            --primary-light: #0c2d3d;
+            --primary-dark: #7dd3fc;
+            --secondary: #2dd4bf;
+            --accent: #fb923c;
+            --accent-light: #3d2112;
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border: #334155;
+            --border-hover: #475569;
+            --shadow: 0 4px 6px -1px rgba(0,0,0,0.3);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.4);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Top Navigation Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            color: white;
+            padding: 2.5rem 1.5rem 2rem;
+            position: relative;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .title-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(8px);
+            padding: 0.35rem 0.85rem;
+            border-radius: 9999px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            border: 1px solid rgba(255,255,255,0.25);
+        }
+
+        h1 {
+            font-size: 2.1rem;
+            font-weight: 800;
+            line-height: 1.25;
+            margin-top: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.05rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin-top: 0.3rem;
+            font-weight: 300;
+        }
+
+        .theme-toggle-btn {
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 0.6rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .theme-toggle-btn:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        /* Main Container */
+        .main-container {
+            max-width: 1200px;
+            margin: -1.5rem auto 3rem;
+            padding: 0 1.5rem;
+            position: relative;
+        }
+
+        /* Nav Tabs */
+        .tabs-nav {
+            display: flex;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 0.4rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+            gap: 0.3rem;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .tabs-nav::-webkit-scrollbar {
+            display: none;
+        }
+
+        .tab-btn {
+            flex: 1;
+            min-width: 150px;
+            padding: 0.85rem 1rem;
+            border: none;
+            background: transparent;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+
+        .tab-btn:hover {
+            color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        .tab-btn.active {
+            color: white;
+            background: var(--primary);
+            box-shadow: 0 2px 8px rgba(30, 95, 116, 0.35);
+        }
+
+        [data-theme="dark"] .tab-btn.active {
+            color: #0f172a;
+            background: var(--primary);
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            margin-top: 1.75rem;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Card Component */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.75rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-lg);
+            border-color: var(--border-hover);
+        }
+
+        /* Grid System */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+        }
+
+        /* Summary Pillars */
+        .pillar-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+            border-left: 5px solid var(--primary);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            transition: var(--transition);
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .pillar-card.geo { border-left-color: var(--tag-geo); }
+        .pillar-card.bio { border-left-color: var(--tag-bio); }
+        .pillar-card.sante { border-left-color: var(--tag-sante); }
+        .pillar-card.methode { border-left-color: var(--tag-methode); }
+        .pillar-card.accent { border-left-color: var(--accent); }
+
+        .pillar-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .pillar-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .badge {
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 0.25rem 0.6rem;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .badge-geo { background: #e0f2fe; color: #0369a1; }
+        .badge-bio { background: #dcfce7; color: #15803d; }
+        .badge-sante { background: #ffe4e6; color: #be123c; }
+        .badge-methode { background: #ede9fe; color: #6d28d9; }
+        .badge-accent { background: var(--accent-light); color: var(--accent); }
+
+        [data-theme="dark"] .badge-geo { background: #075985; color: #e0f2fe; }
+        [data-theme="dark"] .badge-bio { background: #166534; color: #dcfce7; }
+        [data-theme="dark"] .badge-sante { background: #9f1239; color: #ffe4e6; }
+        [data-theme="dark"] .badge-methode { background: #5b21b6; color: #ede9fe; }
+
+        .pillar-desc {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+        }
+
+        .pillar-list {
+            margin-top: 0.5rem;
+            padding-left: 1.25rem;
+            font-size: 0.9rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .pillar-list li strong {
+            color: var(--text-main);
+        }
+
+        /* Filter & Search Bar */
+        .controls-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--card-bg);
+            padding: 1rem 1.25rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+
+        .search-box {
+            position: relative;
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.7rem 1rem 0.7rem 2.4rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--bg);
+            color: var(--text-main);
+            font-size: 0.92rem;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .search-box input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(30, 95, 116, 0.15);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 0.8rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            pointer-events: none;
+        }
+
+        .filter-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-chip {
+            border: 1px solid var(--border);
+            background: var(--bg);
+            color: var(--text-muted);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-chip:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .filter-chip.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* Interactive Comparison Table */
+        .table-wrapper {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            overflow-x: auto;
+            box-shadow: var(--shadow);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.92rem;
+            text-align: left;
+        }
+
+        th {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-weight: 700;
+            padding: 1rem 1.25rem;
+            border-bottom: 2px solid var(--border);
+            white-space: nowrap;
+        }
+
+        [data-theme="dark"] th {
+            background: #1e293b;
+            color: var(--primary);
+        }
+
+        td {
+            padding: 1.15rem 1.25rem;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background-color: rgba(0,0,0,0.015);
+        }
+
+        [data-theme="dark"] tr:hover td {
+            background-color: rgba(255,255,255,0.02);
+        }
+
+        .col-topic {
+            width: 20%;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .col-old {
+            width: 38%;
+            color: var(--text-muted);
+            background: rgba(241, 245, 249, 0.4);
+        }
+
+        [data-theme="dark"] .col-old {
+            background: rgba(15, 23, 42, 0.3);
+        }
+
+        .col-new {
+            width: 42%;
+            color: var(--text-main);
+        }
+
+        .diff-tag {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            margin-bottom: 0.35rem;
+        }
+
+        .diff-plus { background: #dcfce7; color: #166534; }
+        .diff-suppr { background: #fee2e2; color: #991b1b; }
+        .diff-shift { background: #fef3c7; color: #92400e; }
+
+        [data-theme="dark"] .diff-plus { background: #14532d; color: #bbf7d0; }
+        [data-theme="dark"] .diff-suppr { background: #7f1d1d; color: #fecaca; }
+        [data-theme="dark"] .diff-shift { background: #78350f; color: #fde68a; }
+
+        /* Level Timeline (5e, 4e, 3e) */
+        .level-selector {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .level-btn {
+            flex: 1;
+            padding: 1rem;
+            border: 2px solid var(--border);
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            cursor: pointer;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .level-btn:hover {
+            border-color: var(--primary);
+        }
+
+        .level-btn.active {
+            border-color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        .level-btn h3 {
+            font-size: 1.2rem;
+            color: var(--text-main);
+            margin-bottom: 0.25rem;
+        }
+
+        .level-btn span {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+
+        .level-pane {
+            display: none;
+        }
+
+        .level-pane.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .accordion-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            margin-bottom: 0.85rem;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .accordion-header {
+            padding: 1rem 1.25rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--card-bg);
+            font-weight: 700;
+            user-select: none;
+            transition: background 0.2s;
+        }
+
+        .accordion-header:hover {
+            background: var(--primary-light);
+        }
+
+        .accordion-header .acc-title {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1rem;
+        }
+
+        .accordion-header .acc-icon {
+            font-size: 1.1rem;
+            transition: transform 0.25s;
+            color: var(--text-muted);
+        }
+
+        .accordion-item.open .acc-icon {
+            transform: rotate(180deg);
+        }
+
+        .accordion-body {
+            display: none;
+            padding: 1.25rem;
+            border-top: 1px solid var(--border);
+            background: var(--bg);
+            font-size: 0.92rem;
+        }
+
+        .accordion-item.open .accordion-body {
+            display: block;
+        }
+
+        .key-points-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1rem;
+            margin-top: 0.75rem;
+        }
+
+        .key-box {
+            background: var(--card-bg);
+            padding: 0.9rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .key-box h5 {
+            font-size: 0.85rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            margin-bottom: 0.35rem;
+        }
+
+        /* Quiz / Check knowledge */
+        .quiz-container {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 2rem;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .question-card {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .question-card:last-child {
+            border-bottom: none;
+            margin-bottom: 1rem;
+        }
+
+        .q-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .options-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--bg);
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.92rem;
+        }
+
+        .option-label:hover {
+            border-color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        .option-label.correct {
+            border-color: var(--success);
+            background: #dcfce7;
+            color: #14532d;
+            font-weight: 600;
+        }
+
+        .option-label.incorrect {
+            border-color: #ef4444;
+            background: #fee2e2;
+            color: #7f1d1d;
+        }
+
+        .feedback-text {
+            margin-top: 0.6rem;
+            font-size: 0.85rem;
+            padding: 0.6rem 0.9rem;
+            border-radius: 6px;
+            display: none;
+        }
+
+        .feedback-text.show {
+            display: block;
+        }
+
+        .feedback-text.correct-fb {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .feedback-text.wrong-fb {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        /* Women in Science Banner */
+        .women-banner {
+            background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            margin-top: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            box-shadow: var(--shadow);
+        }
+
+        .women-names {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.25rem;
+        }
+
+        .woman-chip {
+            background: rgba(255,255,255,0.2);
+            padding: 0.35rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            backdrop-filter: blur(4px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2.5rem 1rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border);
+            background: var(--card-bg);
+            margin-top: 3rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 1.6rem; }
+            .col-topic, .col-old, .col-new {
+                display: block;
+                width: 100%;
+            }
+            tr {
+                display: block;
+                border-bottom: 2px solid var(--border);
+                padding-bottom: 1rem;
+                margin-bottom: 1rem;
+            }
+            td {
+                display: block;
+                padding: 0.5rem 0.75rem;
+                border: none;
+            }
+            .col-topic {
+                background: var(--primary-light);
+                border-radius: 6px;
+                margin-bottom: 0.5rem;
+            }
+            thead { display: none; }
+            .level-selector { flex-direction: column; }
+        }
+
+        @media print {
+            .tabs-nav, .controls-row, .theme-toggle-btn, .quiz-container { display: none; }
+            .tab-content { display: block !important; }
+            header { background: #1e5f74 !important; color: white !important; }
+            body { background: white !important; color: black !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="header-top">
+                <div class="title-badge">
+                    <span>🔬 Analyse Pédagogique & Institutionnelle</span>
+                </div>
+                <button class="theme-toggle-btn" id="themeToggle" onclick="toggleTheme()">
+                    <span id="themeIcon">🌙</span> <span id="themeLabel">Mode Sombre</span>
+                </button>
+            </div>
+            <h1>Projets de Programmes SVT - Cycle 4</h1>
+            <p class="subtitle">Guide interactif et comparatif des nouveautés, ruptures épistémologiques et réorientations didactiques (Projet CSP Juillet 2025 vs Programmes 2015/2020).</p>
+        </div>
+    </header>
+
+    <div class="main-container">
+        
+        <!-- Navigation Tabs -->
+        <nav class="tabs-nav" role="tablist">
+            <button class="tab-btn active" onclick="switchTab('tab-overview', this)">
+                <span>🏛️</span> Les 6 Piliers Clés
+            </button>
+            <button class="tab-btn" onclick="switchTab('tab-table', this)">
+                <span>📊</span> Tableau Comparatif Détaillé
+            </button>
+            <button class="tab-btn" onclick="switchTab('tab-levels', this)">
+                <span>📅</span> Progression par Niveau (5e-4e-3e)
+            </button>
+            <button class="tab-btn" onclick="switchTab('tab-focus', this)">
+                <span>💡</span> Focus sur les Ruptures
+            </button>
+            <button class="tab-btn" onclick="switchTab('tab-quiz', this)">
+                <span>🎯</span> Quiz d'Auto-Évaluation
+            </button>
+        </nav>
+
+        <!-- TAB 1: OVERVIEW -->
+        <section id="tab-overview" class="tab-content active">
+            <div class="card" style="margin-bottom: 1.5rem; border-left: 5px solid var(--primary);">
+                <h2 style="font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--primary);">Synthèse des grandes orientations du projet CSP</h2>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">
+                    Le projet de programme de SVT pour le cycle 4 (5e, 4e, 3e) réorganise en profondeur l'enseignement : fin du cycle global indifférencié au profit d'une <strong>annualisation stricte</strong>, fusion des sciences de la Terre et de l'environnement en un axe unifié <strong>« Terre et vivant »</strong>, entrée en force des <strong>neurosciences cognitives</strong> et du concept fédérateur <strong>« Une seule santé » (One Health)</strong>.
+                </p>
+            </div>
+
+            <div class="grid-3">
+                <div class="pillar-card methode">
+                    <div class="pillar-header">
+                        <span class="pillar-title"><span>📐</span> Épistémologie & "Faire des sciences"</span>
+                        <span class="badge badge-methode">Méthode</span>
+                    </div>
+                    <p class="pillar-desc">Un module méthodologique explicite présent chaque année (5e, 4e, 3e) pour ancrer la rationalité scientifique.</p>
+                    <ul class="pillar-list">
+                        <li><strong>Distinguer :</strong> faits, savoirs, opinions et croyances (5e) puis pseudo-sciences (4e).</li>
+                        <li><strong>Publication par les pairs :</strong> étude du mécanisme du consensus scientifique en 3e.</li>
+                        <li><strong>Évaluation sommative :</strong> plafonnée à 10% maximum du temps d'enseignement.</li>
+                    </ul>
+                </div>
+
+                <div class="pillar-card accent">
+                    <div class="pillar-header">
+                        <span class="pillar-title"><span>🌿</span> Le Réel & la "Classe de terrain"</span>
+                        <span class="badge badge-accent">Terrain</span>
+                    </div>
+                    <p class="pillar-desc">Rupture avec le tout-virtuel : priorité absolue à l'investigation du réel immédiat et des abords du collège.</p>
+                    <ul class="pillar-list">
+                        <li><strong>Terrain de proximité :</strong> cours, rues proches, espaces verts pour observer, mesurer, échantillonner.</li>
+                        <li><strong>Simulations numériques :</strong> cantonnées uniquement aux situations où le réel est inaccessible.</li>
+                        <li><strong>Roches locales :</strong> étude des roches des façades et monuments en 3e.</li>
+                    </ul>
+                </div>
+
+                <div class="pillar-card methode">
+                    <div class="pillar-header">
+                        <span class="pillar-title"><span>🤖</span> IA & Microcontrôleurs</span>
+                        <span class="badge badge-methode">Numérique</span>
+                    </div>
+                    <p class="pillar-desc">Transition technologique : l'intelligence artificielle devient à la fois un outil d'étude et un objet critique.</p>
+                    <ul class="pillar-list">
+                        <li><strong>IA naturalistes :</strong> utilisation d'outils de reconnaissance (Pl@ntNet, BirdNET, Merlin).</li>
+                        <li><strong>Esprit critique :</strong> sensibilisation aux biais, RGPD et à l'empreinte écologique du numérique/IA.</li>
+                        <li><strong>Matériel :</strong> recours aux microcontrôleurs programmables à la place de l'ExAO classique.</li>
+                    </ul>
+                </div>
+
+                <div class="pillar-card geo">
+                    <div class="pillar-header">
+                        <span class="pillar-title"><span>🌍</span> Approche Biogéochimique</span>
+                        <span class="badge badge-geo">Géosciences</span>
+                    </div>
+                    <p class="pillar-desc">Modélisation systémique de la dynamique planétaire basée sur les flux, réservoirs et temps de résidence.</p>
+                    <ul class="pillar-list">
+                        <li><strong>Cycle de l'eau (5e) :</strong> habitabilité comparée (Terre vs Mars), calculs sur tableur.</li>
+                        <li><strong>Cycle du carbone (4e) :</strong> perturbations anthropiques, GES (CO2, méthane).</li>
+                        <li><strong>Cycle des roches (3e) :</strong> altération, transport, sédimentation couplés au climat.</li>
+                    </ul>
+                </div>
+
+                <div class="pillar-card bio">
+                    <div class="pillar-header">
+                        <span class="pillar-title"><span>🧠</span> Neurosciences & Émotions</span>
+                        <span class="badge badge-bio">Cognition</span>
+                    </div>
+                    <p class="pillar-desc">Introduction de la neurobiologie fonctionnelle appliquée aux apprentissages et aux compétences psychosociales.</p>
+                    <ul class="pillar-list">
+                        <li><strong>Le cerveau qui apprend :</strong> plasticité synaptique, consolidation et rôle fondamental du sommeil.</li>
+                        <li><strong>Biologie des émotions :</strong> valence, signaux corporels, régulation face au stress.</li>
+                        <li><strong>Addictions modernes :</strong> mécanismes cérébraux face aux écrans, réseaux sociaux et jeux.</li>
+                    </ul>
+                </div>
+
+                <div class="pillar-card sante">
+                    <div class="pillar-header">
+                        <span class="pillar-title"><span>🩺</span> One Health & Éthique</span>
+                        <span class="badge badge-sante">Santé</span>
+                    </div>
+                    <p class="pillar-desc">Une vision holistique de la santé, décloisonnée et ancrée dans les grands débats de société actuels.</p>
+                    <ul class="pillar-list">
+                        <li><strong>Concept "One Health" :</strong> interdépendance santé humaine, santé animale et écosystèmes.</li>
+                        <li><strong>Vie affective (EVARS) :</strong> bases biologiques du plaisir sexuel (clitoris/pénis), consentement, respect.</li>
+                        <li><strong>Santé publique :</strong> vaccination HPV contre les cancers, don d'organes, PMA et cadre de l'IVG.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="women-banner">
+                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
+                    <h3 style="font-size: 1.15rem; font-weight: 700;">👩‍🔬 Valorisation explicite des Femmes Scientifiques</h3>
+                    <span style="font-size: 0.8rem; background: rgba(255,255,255,0.25); padding: 0.2rem 0.6rem; border-radius: 4px;">Égalité Filles-Garçons</span>
+                </div>
+                <p style="font-size: 0.92rem; opacity: 0.95;">
+                    Le préambule du programme prescrit de déconstruire activement les stéréotypes de genre en donnant aux élèves des « modèles » féminins remarquables dans les biogéosciences :
+                </p>
+                <div class="women-names">
+                    <span class="woman-chip">Rosalind Franklin (ADN)</span>
+                    <span class="woman-chip">Françoise Barré-Sinoussi (VIH)</span>
+                    <span class="woman-chip">Emmanuelle Charpentier (CRISPR)</span>
+                    <span class="woman-chip">Marie Tharp (Cartographie océanique)</span>
+                    <span class="woman-chip">Katia Krafft (Volcanologie)</span>
+                    <span class="woman-chip">Rachel Carson (Écologie)</span>
+                    <span class="woman-chip">Lynn Margulis (Endosymbiose)</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 2: DETAILED TABLE -->
+        <section id="tab-table" class="tab-content">
+            
+            <div class="controls-row">
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="tableSearch" placeholder="Rechercher une notion, un mot-clé (ex: plaisir, IA, sommeil, climat)..." onkeyup="filterTable()">
+                </div>
+                <div class="filter-tags">
+                    <button class="filter-chip active" onclick="setTableCategory('all', this)">Tous</button>
+                    <button class="filter-chip" onclick="setTableCategory('structure', this)">Structure</button>
+                    <button class="filter-chip" onclick="setTableCategory('epistemo', this)">Épistémologie</button>
+                    <button class="filter-chip" onclick="setTableCategory('geo', this)">Terre & Climat</button>
+                    <button class="filter-chip" onclick="setTableCategory('bio', this)">Vivant & Évolution</button>
+                    <button class="filter-chip" onclick="setTableCategory('neuro', this)">Corps & Neurosciences</button>
+                    <button class="filter-chip" onclick="setTableCategory('sexualite', this)">Santé & Sexualité</button>
+                </div>
+            </div>
+
+            <div class="table-wrapper">
+                <table id="comparisonTable">
+                    <thead>
+                        <tr>
+                            <th class="col-topic">Domaine / Thématique</th>
+                            <th class="col-old">Ancien Programme (2015-2020)</th>
+                            <th class="col-new">Projet de Programme CSP (Juillet 2025)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Row 1 -->
+                        <tr data-cat="structure">
+                            <td class="col-topic">
+                                <strong>Organisation & Cadrage</strong>
+                                <span class="badge badge-methode" style="display:block; width:fit-content; margin-top:4px;">Structure</span>
+                            </td>
+                            <td class="col-old">
+                                • Découpage en <strong>3 thèmes</strong>.<br>
+                                • Conçu pour l'ensemble du cycle 4 sans répartition obligatoire par niveau (liberté pédagogique totale des équipes).<br>
+                                • Simples « repères de progressivité » indicatifs.
+                            </td>
+                            <td class="col-new">
+                                <span class="diff-tag diff-shift">Modification majeure</span><br>
+                                • Regroupé en <strong>2 grandes thématiques</strong> : <em>« Terre et vivant »</em> et <em>« Corps humain et santé »</em>.<br>
+                                • <strong>Annualisation stricte et prescriptive</strong> : programme précisément défini pour chaque niveau (5e, 4e, 3e).<br>
+                                • Format normalisé : <em>Objectifs d'apprentissage</em>, <em>Exemples de réussite</em>, <em>Notions fondamentales</em>, <em>Précisions et limites</em>.
+                            </td>
+                        </tr>
+
+                        <!-- Row 2 -->
+                        <tr data-cat="epistemo">
+                            <td class="col-topic">
+                                <strong>Nature des sciences & Épistémologie</strong>
+                                <span class="badge badge-methode" style="display:block; width:fit-content; margin-top:4px;">Épistémologie</span>
+                            </td>
+                            <td class="col-old">
+                                • Compétence transversale générale : « pratiquer des démarches scientifiques ».<br>
+                                • Distinction classique entre faits, hypothèses et opinions.
+                            </td>
+                            <td class="col-new">
+                                <span class="diff-tag diff-plus">Nouveauté explicite</span><br>
+                                • Module obligatoire <strong>« Faire des sciences »</strong> enseigné à chaque niveau :<br>
+                                &nbsp;&nbsp;- 5e : distinguer science, croyance et opinion.<br>
+                                &nbsp;&nbsp;- 4e : repérer les <strong>démarches pseudo-scientifiques</strong>.<br>
+                                &nbsp;&nbsp;- 3e : comprendre le processus de <strong>publication scientifique et d'évaluation par les pairs (peer review)</strong>.<br>
+                                • Distinction formelle entre <strong>corrélation et causalité</strong>.
+                            </td>
+                        </tr>
+
+                        <!-- Row 3 -->
+                        <tr data-cat="epistemo">
+                            <td class="col-topic">
+                                <strong>Modalités d'évaluation & Pédagogie</strong>
+                                <span class="badge badge-methode" style="display:block; width:fit-content; margin-top:4px;">Méthodes</span>
+                            </td>
+                            <td class="col-old">
+                                • Évaluation par compétences adossée au socle commun.<br>
+                                • Pas de contingentement temporel sur les devoirs et contrôles.
+                            </td>
+                            <td class="col-new">
+                                <span class="diff-tag diff-shift">Régulation forte</span><br>
+                                • <strong>Plafond de 10% maximum</strong> du temps d'enseignement réservé aux évaluations sommatives.<br>
+                                • Valorisation de l'évaluation formative et diagnostique.<br>
+                                • Diversification explicite des démarches : inductives, déductives, abductives, démarche d'investigation mais aussi enseignement explicite et cours magistral.
+                            </td>
+                        </tr>
+
+                        <!-- Row 4 -->
+                        <tr data-cat="epistemo">
+                            <td class="col-topic">
+                                <strong>Terrain & Numérique (IA)</strong>
+                                <span class="badge badge-methode" style="display:block; width:fit-content; margin-top:4px;">Outils</span>
+                            </td>
+                            <td class="col-old">
+                                • Forte incitation à l'ExAO, aux banques de données et logiciels de simulation.<br>
+                                • Aucune référence à l'Intelligence Artificielle.
+                            </td>
+                            <td class="col-new">
+                                <span class="diff-tag diff-plus">Virage technologique</span><br>
+                                • <strong>Primauté absolue du « réel de terrain »</strong> : observation directe aux abords du collège (la simulation n'intervient qu'en cas d'impossibilité).<br>
+                                • Entrée officielle des <strong>outils d'IA</strong> : identification biologique (Pl@ntNet, BirdNET, Merlin), génération d'images de paléoenvironnements.<br>
+                                • Éducation critique : travail sur les biais de l'IA et son <strong>coût énergétique/écologique</strong>.<br>
+                                • Transition vers les <strong>microcontrôleurs</strong> (plus accessibles que l'ExAO).
+                            </td>
+                        </tr>
+
+                        <!-- Row 5 -->
+                        <tr data-cat="geo">
+                            <td class="col-topic">
+                                <strong>Terre, Planétologie & Climat</strong>
+                                <span class="badge badge-geo" style="display:block; width:fit-content; margin-top:4px;">Géosciences</span>
+                            </td>
+                            <td class="col-old">
+                                • Approche classique : Terre planète active, tectonique des plaques, séismes, volcans.<br>
+                                • Météorologie et climat traités de façon descriptive.<br>
+                                • Historique Wegener / dérive des continents souvent mobilisé.
+                            </td>
+                            <td class="col-new">
+                                <span class="diff-tag diff-plus">Approche systémique</span><br>
+                                • <strong>Fil conducteur des cycles biogéochimiques</strong> :<br>
+                                &nbsp;&nbsp;- 5e : cycle de l'eau, calculs de <strong>temps de résidence</strong>, habitabilité comparée Terre vs Mars (4,4 Ga d'eau, 3,5 Ga de vie).<br>
+                                &nbsp;&nbsp;- 4e : cycle du carbone (réservoirs, flux, effet anthropique direct sur les GES).<br>
+                                &nbsp;&nbsp;- 3e : cycle des roches (altération, sédimentation) couplé à l'eau et au carbone.<br>
+                                • L'approche historique de la tectonique est retirée au profit de mesures actuelles (GPS, sismogrammes).<br>
+                                • Articulation avec les <strong>PPMS</strong> et la prévention des risques.
+                            </td>
+                        </tr>
+
+                        <!-- Row 6 -->
+                        <tr data-cat="bio">
+                            <td class="col-topic">
+                                <strong>Métabolismes & Végétaux</strong>
+                                <span class="badge badge-bio" style="display:block; width:fit-content; margin-top:4px;">Biologie</span>
+                            </td>
+                            <td class="col-old">
+                                • Besoins nutritifs des plantes et des animaux abordés simultanément ou au fil de l'eau sur le cycle.<br>
+                                • Photosynthèse et respiration parfois entremêlées.
+                            </td>
+                            <td class="col-new">
+                                <span class="diff-tag diff-shift">Clarification progressive</span><br>
+                                • Découpage strict par niveau :<br>
+                                &nbsp;&nbsp;- 5e : <strong>Respiration aérobie</strong> uniquement (conversion chimique glucose + O2 en énergie, CO2, eau).<br>
+                                &nbsp;&nbsp;- 4e : <strong>Photosynthèse</strong> (conversion de l'énergie lumineuse, sèves brute/élaborée, vaisseaux conducteurs).<br>
+                                • Zoom sur les <strong>solutions fondées sur la nature</strong> et l'ingénierie écologique en 3e.
+                            </td>
+                        </tr>
+
+                        <!-- Row 7 -->
+                        <tr data-cat="bio">
+                            <td class="col-topic">
+                                <strong>Génétique & Évolution</strong>
+                                <span class="badge badge-bio" style="display:block; width:fit-content; margin-top:4px;">Évolution</span>
+                            </td>
+                            <td class="col-old">
+                                • Étude détaillée de la division cellulaire (mitose) et de la formation des gamètes (méiose).<br>
+                                • Gènes, allèles, mutations et arbres phylogénétiques.
+                            </td>
+                            <td class="col-new">
+                                <span class="diff-tag diff-suppr">Allègement & Recadrage</span><br>
+                                • Substitution terminologique : emploi de <strong>« multiplication cellulaire »</strong> à la place de « division ».<br>
+                                • <strong>Retrait du mécanisme cellulaire de la méiose</strong> : recentrage sur la comparaison de caryotypes et la notion de brassage chromosomique.<br>
+                                • Évolution abordée sous l'angle de la <strong>génétique des populations</strong> et de la spéciation en 3e.<br>
+                                • Étude limitée à <strong>une seule crise biologique</strong> du passé.
+                            </td>
+                        </tr>
+
+                        <!-- Row 8 -->
+                        <tr data-cat="neuro">
+                            <td class="col-topic">
+                                <strong>Système Nerveux & Neurosciences</strong>
+                                <span class="badge badge-sante" style="display:block; width:fit-content; margin-top:4px;">Neurosciences</span>
+                            </td>
+                            <td class="col-old">
+                                • Stimulus, récepteur, nerf sensitif, centre nerveux, nerf moteur.<br>
+                                • Effets des drogues et de l'alcool sur le cerveau.
+                            </td>
+                            <td class="col-new">
+                                <span class="diff-tag diff-plus">Majeure innovante</span><br>
+                                • 4e : Structure du neurone et intégration sensorimotrice.<br>
+                                • 3e : <strong>Le cerveau qui apprend</strong> (plasticité synaptique, réseaux neuronaux, rôle protecteur et consolidateur du <strong>sommeil</strong>).<br>
+                                • <strong>Origine biologique des émotions</strong> : valence (agréable/désagréable), réponses corporelles et régulation.<br>
+                                • Addictions comportementales : <strong>écrans, réseaux sociaux, jeux d'argent</strong>, troubles des conduites alimentaires (TCA).
+                            </td>
+                        </tr>
+
+                        <!-- Row 9 -->
+                        <tr data-cat="sexualite">
+                            <td class="col-topic">
+                                <strong>Procréation, Plaisir & Société</strong>
+                                <span class="badge badge-sante" style="display:block; width:fit-content; margin-top:4px;">EVARS</span>
+                            </td>
+                            <td class="col-old">
+                                • Reproduction humaine, puberté, régulation hormonale.<br>
+                                • Contraception, préservatif et prévention des IST.<br>
+                                • Distinction générale entre reproduction et sexualité.
+                            </td>
+                            <td class="col-new">
+                                <span class="diff-tag diff-plus">Évolution sociétale majeure</span><br>
+                                • Changement de lexique : <strong>« procréation »</strong> (plutôt que reproduction) et <strong>« cellules sexuelles »</strong>.<br>
+                                • 4e : <strong>Bases neurobiologiques du plaisir sexuel</strong> (terminaisons nerveuses, clitoris, pénis et aires cérébrales du plaisir).<br>
+                                • 3e : Intégration explicite du <strong>consentement préalable</strong>, respect d'autrui, cadre légal de la <strong>PMA, de l'IVG, de l'IMG et de la pilule d'urgence</strong>.
+                            </td>
+                        </tr>
+
+                        <!-- Row 10 -->
+                        <tr data-cat="sexualite">
+                            <td class="col-topic">
+                                <strong>Microbiote, Immunité & "One Health"</strong>
+                                <span class="badge badge-sante" style="display:block; width:fit-content; margin-top:4px;">Santé</span>
+                            </td>
+                            <td class="col-old">
+                                • Microorganismes pathogènes, asepsie, antibiotiques, vaccination.<br>
+                                • Réaction immunitaire (phagocytose, lymphocytes).<br>
+                                • Évocation rapide du microbiote.
+                            </td>
+                            <td class="col-new">
+                                <span class="diff-tag diff-plus">Approche One Health</span><br>
+                                • Fil conducteur triennal adossé au concept <strong>« Une seule santé » (One Health)</strong>.<br>
+                                • Rôle central du <strong>microbiote</strong> dans la digestion (4e) et l'immunité.<br>
+                                • Actualités médicales : traitements antiviraux, <strong>vaccination HPV et prévention des cancers</strong> (3e).<br>
+                                • Antibiorésistance expliquée comme un cas concret de <strong>sélection naturelle</strong> (3e).<br>
+                                • Sensibilisation citoyenne au <strong>don d'organes, de tissus et de sang</strong> (4e).
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- TAB 3: PROGRESSION PAR NIVEAU -->
+        <section id="tab-levels" class="tab-content">
+            <div class="level-selector">
+                <div class="level-btn active" onclick="switchLevel('level-5e', this)">
+                    <h3>Classe de 5ème</h3>
+                    <span>Fondations, Eau & Organismes</span>
+                </div>
+                <div class="level-btn" onclick="switchLevel('level-4e', this)">
+                    <h3>Classe de 4ème</h3>
+                    <span>Dynamique interne, Carbone & Métabolismes</span>
+                </div>
+                <div class="level-btn" onclick="switchLevel('level-3e', this)">
+                    <h3>Classe de 3ème</h3>
+                    <span>Cycles des roches, Neurosciences & Société</span>
+                </div>
+            </div>
+
+            <!-- PANE 5e -->
+            <div id="level-5e" class="level-pane active">
+                <div class="accordion-item open">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="acc-title"><span>🔬</span> Partie Commune : Nature des pratiques scientifiques</div>
+                        <span class="acc-icon">▼</span>
+                    </div>
+                    <div class="accordion-body">
+                        <p><strong>Thème : Faire des sciences</strong></p>
+                        <p>Distinguer une démarche scientifique d'une démarche non scientifique. Différencier savoir scientifique, croyance et opinion. Illustrer l'impact historique et actuel des biotechnologies.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item open">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="acc-title"><span>🌊</span> Terre et Vivant : Habitabilité & Dynamique</div>
+                        <span class="acc-icon">▼</span>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="key-points-grid">
+                            <div class="key-box">
+                                <h5>Planète Habitable</h5>
+                                • Enveloppes concentriques de la Terre.<br>
+                                • Habitabilité comparée avec Mars (eau liquide depuis 4,4 Ga, vie depuis 3,5 Ga).<br>
+                                • <strong>Cycle de l'eau</strong> : flux, réservoirs, calcul des temps de résidence sur tableur.
+                            </div>
+                            <div class="key-box">
+                                <h5>Planète Dynamique</h5>
+                                • Différence météo vs climat (local et global).<br>
+                                • Circulation atmosphérique et courants océaniques.<br>
+                                • Couplage océan-atmosphère moteur des grands climats.
+                            </div>
+                            <div class="key-box">
+                                <h5>Interactions Terre - Vivant</h5>
+                                • Biosphère : pellicule de vie aux interfaces.<br>
+                                • Organisation uni et pluricellulaire, notion de microbiote non-humain.<br>
+                                • <strong>Respiration aérobie</strong> (métabolisme global).<br>
+                                • <strong>Multiplication asexuée</strong> (clones, bouturage, agriculture).
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item open">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="acc-title"><span>🏃</span> Corps Humain et Santé : Activité & Première défense</div>
+                        <span class="acc-icon">▼</span>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="key-points-grid">
+                            <div class="key-box">
+                                <h5>Activité Physique</h5>
+                                • Commande nerveuse du mouvement (cerveau et moelle).<br>
+                                • Adaptations cardiorespiratoires à l'effort.<br>
+                                • Hygiène de vie, surentraînement et dangers du dopage.
+                            </div>
+                            <div class="key-box">
+                                <h5>Micro-organismes & Humain</h5>
+                                • Distinction contamination vs infection.<br>
+                                • Mesures de lutte : asepsie, antisepsie, antiviraux, vaccins.<br>
+                                • Début du concept <em>« One Health »</em> et campagne vaccinale HPV.
+                            </div>
+                            <div class="key-box">
+                                <h5>Procréation Humaine</h5>
+                                • Fonctionnement cyclique féminin et continu masculin.<br>
+                                • Gamètes rebaptisées <strong>« cellules sexuelles »</strong>.<br>
+                                • Trajet et rencontre des cellules sexuelles, cellule-œuf.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PANE 4e -->
+            <div id="level-4e" class="level-pane">
+                <div class="accordion-item open">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="acc-title"><span>🔬</span> Partie Commune : Épistémologie renforcée</div>
+                        <span class="acc-icon">▼</span>
+                    </div>
+                    <div class="accordion-body">
+                        <p><strong>Thème : Faire des sciences</strong></p>
+                        <p>Distinguer démarche scientifique et démarches pseudo-scientifiques. Traiter les controverses avec recul et méthode rationnelle.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item open">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="acc-title"><span>🌋</span> Terre et Vivant : Carbone, Risques & Photosynthèse</div>
+                        <span class="acc-icon">▼</span>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="key-points-grid">
+                            <div class="key-box">
+                                <h5>Cycle du Carbone</h5>
+                                • Formes du carbone (CO2, CH4, calcaire, biomasse).<br>
+                                • Flux, réservoirs et réchauffement climatique anthropique.
+                            </div>
+                            <div class="key-box">
+                                <h5>Tectonique & Risques</h5>
+                                • Convergence, divergence (données GPS actuelles).<br>
+                                • Volcanismes effusif et explosif.<br>
+                                • Aléas, vulnérabilité, risques et rôle des plans de sûreté (PPMS).
+                            </div>
+                            <div class="key-box">
+                                <h5>Écosystèmes & Reproduction</h5>
+                                • <strong>Photosynthèse</strong> : absorption minérale, sèves brute/élaborée.<br>
+                                • <strong>Reproduction sexuée</strong> et brassage de l'ADN.<br>
+                                • Biodiversité : utilisation d'IA d'identification (Pl@ntNet, BirdNET) et interactions de communication animale/végétale.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item open">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="acc-title"><span>🫀</span> Corps Humain : Nutrition, Systèmes & Plaisir</div>
+                        <span class="acc-icon">▼</span>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="key-points-grid">
+                            <div class="key-box">
+                                <h5>Nutrition & Transport</h5>
+                                • Rôle clé du microbiote dans la digestion.<br>
+                                • Échanges alvéolaires, circulation sanguine générale.<br>
+                                • Excrétion rénale et sensibilisation civique au <strong>don d'organes/sang</strong>.
+                            </div>
+                            <div class="key-box">
+                                <h5>Immunité & SIDA</h5>
+                                • Phagocytose, anticorps, mémoire immunitaire.<br>
+                                • Infection par le VIH et avancées thérapeutiques.
+                            </div>
+                            <div class="key-box">
+                                <h5>Sexualité & Plaisir</h5>
+                                • Contrôle hormonal des gonades.<br>
+                                • <strong>Neurobiologie du plaisir sexuel</strong> (clitoris, pénis, zones cérébrales).<br>
+                                • Contraception et respect absolu de l'autre.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PANE 3e -->
+            <div id="level-3e" class="level-pane">
+                <div class="accordion-item open">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="acc-title"><span>🔬</span> Partie Commune : La science en société & Peer Review</div>
+                        <span class="acc-icon">▼</span>
+                    </div>
+                    <div class="accordion-body">
+                        <p><strong>Thème : Faire des sciences</strong></p>
+                        <p>Comprendre la construction d'un savoir éprouvé à travers la <strong>publication scientifique et l'évaluation par les pairs (peer review)</strong>. Éducation aux médias et vérification des sources institutionnelles (CNRS, INSERM, INRAE).</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item open">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="acc-title"><span>🪨</span> Terre et Vivant : Roches, Évolution & Transition</div>
+                        <span class="acc-icon">▼</span>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="key-points-grid">
+                            <div class="key-box">
+                                <h5>Cycle des Roches</h5>
+                                • Découverte des roches locales et du bâti.<br>
+                                • Dégradation/érosion, transport, sédimentation et fossilisation.<br>
+                                • Ressources vs réserves non renouvelables.
+                            </div>
+                            <div class="key-box">
+                                <h5>Évolution & Populations</h5>
+                                • Modification continue de la biodiversité (fossiles).<br>
+                                • <strong>Dynamique des populations</strong>, sélection naturelle et spéciation.<br>
+                                • Étude d'<strong>une seule crise biologique</strong> majeure.
+                            </div>
+                            <div class="key-box">
+                                <h5>Solutions Fondées sur la Nature</h5>
+                                • Trames vertes, bleues et noires.<br>
+                                • Ingénierie écologique et biotechnologies appliquées.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item open">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="acc-title"><span>🧠</span> Corps Humain : Cerveau, Émotions & Bioéthique</div>
+                        <span class="acc-icon">▼</span>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="key-points-grid">
+                            <div class="key-box">
+                                <h5>Neurosciences des Apprentissages</h5>
+                                • Synapse et neurotransmetteurs.<br>
+                                • Plasticité neuronale et consolidation par le <strong>sommeil</strong>.<br>
+                                • <strong>Origine biologique des émotions</strong> et compétences psychosociales.
+                            </div>
+                            <div class="key-box">
+                                <h5>Santé & Addictions</h5>
+                                • Addictions comportementales (écrans, jeux) et TCA.<br>
+                                • <strong>Antibiorésistance</strong> par sélection naturelle.<br>
+                                • Lien virus HPV / cancers et couverture vaccinale.
+                            </div>
+                            <div class="key-box">
+                                <h5>Parentalité & Consentement</h5>
+                                • Développement embryonnaire et placenta.<br>
+                                • Dépistage prénatal, cadre légal <strong>PMA, IVG, IMG, pilule d'urgence</strong>.<br>
+                                • Notion juridique et morale de <strong>consentement valide</strong>.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 4: FOCUS BREAKTHROUGHS -->
+        <section id="tab-focus" class="tab-content">
+            <div class="grid-2">
+                <div class="card">
+                    <h3 style="color: var(--primary); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <span>🧠</span> Les Neurosciences au service de l'Élève
+                    </h3>
+                    <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+                        Pour la première fois au collège, les programmes de SVT explicitent comment fonctionne le <strong>« cerveau qui apprend »</strong> :
+                    </p>
+                    <ul style="padding-left: 1.25rem; font-size: 0.9rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                        <li><strong>Plasticité synaptique :</strong> apprendre, c'est créer et renforcer des synapses entre neurones.</li>
+                        <li><strong>Le sommeil comme levier cognitif :</strong> rôle biologique prouvé dans la consolidation mnésique à long terme.</li>
+                        <li><strong>Physiologie des émotions :</strong> identification de la valence émotionnelle pour développer la régulation du stress (compétences psychosociales).</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 style="color: var(--tag-sante); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <span>❤️</span> Éducation à la Sexualité (EVARS)
+                    </h3>
+                    <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+                        Une approche décloisonnée, scientifique et moderne de la vie affective et sexuelle :
+                    </p>
+                    <ul style="padding-left: 1.25rem; font-size: 0.9rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                        <li><strong>Reconnaissance du plaisir :</strong> citation formelle du clitoris et des voies nerveuses sensorielles reliant les zones érogènes aux circuits cérébraux.</li>
+                        <li><strong>Consentement préalable :</strong> capacité à identifier des situations où le consentement est absent ou non valide.</li>
+                        <li><strong>Repères bioéthiques :</strong> clarification des techniques d'assistance (PMA) et des droits reproductifs (IVG, contraception d'urgence).</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 style="color: var(--tag-geo); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <span>💻</span> L'Intelligence Artificielle en SVT
+                    </h3>
+                    <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+                        L'IA n'est pas subie mais intégrée comme instrument méthodologique et sujet de réflexion :
+                    </p>
+                    <ul style="padding-left: 1.25rem; font-size: 0.9rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                        <li><strong>Outils de reconnaissance :</strong> entraînement des élèves sur Pl@ntNet ou BirdNET lors des sorties de terrain.</li>
+                        <li><strong>Simulation visuelle :</strong> IA générative d'images pour se représenter des paysages ou climats du passé.</li>
+                        <li><strong>Écologie numérique :</strong> comparaison du coût énergétique d'une requête IA face à une recherche web classique.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 style="color: var(--tag-bio); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <span>🌐</span> Le Paradigme « Une Seule Santé »
+                    </h3>
+                    <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+                        La santé n'est plus traitée de manière isolée au sein de l'organisme humain :
+                    </p>
+                    <ul style="padding-left: 1.25rem; font-size: 0.9rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                        <li><strong>Interconnexion :</strong> santé humaine étroitement tributaire de la santé animale et de la résilience des écosystèmes.</li>
+                        <li><strong>Antibiorésistance globale :</strong> dispersion des résidus médicamenteux dans les rivières et sélection des souches résistantes.</li>
+                        <li><strong>Trames écologiques :</strong> protection des corridors biologiques (trames vertes, bleues et noires) pour prévenir les zoonoses.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 5: QUIZ -->
+        <section id="tab-quiz" class="tab-content">
+            <div class="quiz-container">
+                <h2 style="font-size: 1.35rem; color: var(--primary); margin-bottom: 0.5rem; text-align: center;">🎯 Testez votre maîtrise des nouveautés du projet</h2>
+                <p style="color: var(--text-muted); font-size: 0.92rem; text-align: center; margin-bottom: 2rem;">
+                    Ce questionnaire interactif permet de vérifier vos repères sur les évolutions pédagogiques et notionnelles du projet de programme 2025.
+                </p>
+
+                <!-- Q1 -->
+                <div class="question-card" id="q1">
+                    <div class="q-title">
+                        <span>1.</span> Quel plafond horaire le projet de programme impose-t-il pour les évaluations sommatives ?
+                    </div>
+                    <div class="options-list">
+                        <label class="option-label" onclick="checkAnswer('q1', 0, false, 'Non, 5% n\'est pas le chiffre retenu.')">
+                            <input type="radio" name="opt-q1"> Moins de 5% du temps d'enseignement
+                        </label>
+                        <label class="option-label" onclick="checkAnswer('q1', 1, true, 'Exact ! Les évaluations sommatives ne doivent pas excéder 10% du temps d\'enseignement.')">
+                            <input type="radio" name="opt-q1"> 10% maximum du temps d'enseignement
+                        </label>
+                        <label class="option-label" onclick="checkAnswer('q1', 2, false, 'Non, 25% serait beaucoup trop élevé selon le préambule.')">
+                            <input type="radio" name="opt-q1"> 25% du temps d'enseignement
+                        </label>
+                    </div>
+                    <div class="feedback-text" id="fb-q1"></div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="question-card" id="q2">
+                    <div class="q-title">
+                        <span>2.</span> Quel changement terminologique est prescrit concernant la reproduction et les cellules ?
+                    </div>
+                    <div class="options-list">
+                        <label class="option-label" onclick="checkAnswer('q2', 0, false, 'Non, on ne remplace pas ovule/spermatozoïde par gamète.')">
+                            <input type="radio" name="opt-q2"> Utiliser uniquement le terme générique « gamète » à la place d'ovule et spermatozoïde
+                        </label>
+                        <label class="option-label" onclick="checkAnswer('q2', 1, true, 'Exact ! On préfère « procréation » pour éviter l\'idée de copie identique, et « cellules sexuelles » pour éviter le sous-entendu d\'obligation de reproduction.')">
+                            <input type="radio" name="opt-q2"> Privilégier « procréation » (vs reproduction) et « cellules sexuelles » (vs reproductrices)
+                        </label>
+                        <label class="option-label" onclick="checkAnswer('q2', 2, false, 'Incorrect, le terme clonage n\'est pas réservé aux pluricellulaires.')">
+                            <input type="radio" name="opt-q2"> Remplacer « fécondation » par « hybridation cellulaire »
+                        </label>
+                    </div>
+                    <div class="feedback-text" id="fb-q2"></div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="question-card" id="q3">
+                    <div class="q-title">
+                        <span>3.</span> Quelle notion cellulaire complexe est expressément retirée du programme de cycle 4 ?
+                    </div>
+                    <div class="options-list">
+                        <label class="option-label" onclick="checkAnswer('q3', 0, false, 'La mitose reste présente sous le nom de multiplication cellulaire.')">
+                            <input type="radio" name="opt-q3"> La mitose
+                        </label>
+                        <label class="option-label" onclick="checkAnswer('q3', 1, true, 'Bravo ! Les mécanismes cytologiques détaillés de la méiose ne sont plus exigibles (seul le résultat du brassage sur les caryotypes est étudié).')">
+                            <input type="radio" name="opt-q3"> Les étapes et mécanismes cytologiques de la méiose
+                        </label>
+                        <label class="option-label" onclick="checkAnswer('q3', 2, false, 'La photosynthèse reste un pilier central en classe de 4e.')">
+                            <input type="radio" name="opt-q3"> La photosynthèse
+                        </label>
+                    </div>
+                    <div class="feedback-text" id="fb-q3"></div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="question-card" id="q4">
+                    <div class="q-title">
+                        <span>4.</span> En classe de 3ème, quelle modalité d'élaboration du savoir scientifique les élèves doivent-ils appréhender ?
+                    </div>
+                    <div class="options-list">
+                        <label class="option-label" onclick="checkAnswer('q4', 0, false, 'Le dépôt de brevet relève du droit industriel, pas de la validation du savoir scientifique.')">
+                            <input type="radio" name="opt-q4"> Le dépôt de brevet auprès de l'INPI
+                        </label>
+                        <label class="option-label" onclick="checkAnswer('q4', 1, true, 'Parfait ! L\'élève doit comprendre ce qu\'est une publication scientifique dans une revue soumise à un comité de lecture par les pairs.')">
+                            <input type="radio" name="opt-q4"> Les publications scientifiques soumises à l'évaluation par les pairs (peer review)
+                        </label>
+                        <label class="option-label" onclick="checkAnswer('q4', 2, false, 'Les sondages d\'opinion ne constituent pas un savoir scientifique.')">
+                            <input type="radio" name="opt-q4"> Les sondages d'opinion publique auprès des citoyens
+                        </label>
+                    </div>
+                    <div class="feedback-text" id="fb-q4"></div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>Document interactif d'analyse comparative des programmes de SVT Cycle 4 • Conçu pour l'appropriation des professeurs et formateurs académiques</p>
+        <p style="margin-top: 0.35rem; font-size: 0.78rem; opacity: 0.8;">Sources : Projet de programme SVT C4 - CSP (Juillet 2025) & Programme officiel SVT C4 (BOEN 2015/2020).</p>
+    </footer>
+
+    <script>
+        // Tab switching
+        function switchTab(tabId, btn) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            
+            document.getElementById(tabId).classList.add('active');
+            btn.classList.add('active');
+        }
+
+        // Level selector switching
+        function switchLevel(levelId, btn) {
+            document.querySelectorAll('.level-pane').forEach(pane => pane.classList.remove('active'));
+            document.querySelectorAll('.level-btn').forEach(b => b.classList.remove('active'));
+            
+            document.getElementById(levelId).classList.add('active');
+            btn.classList.add('active');
+        }
+
+        // Accordion toggle
+        function toggleAccordion(header) {
+            const item = header.parentElement;
+            item.classList.toggle('open');
+        }
+
+        // Filter comparison table by category
+        function setTableCategory(category, chip) {
+            document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+            chip.classList.add('active');
+
+            const rows = document.querySelectorAll('#comparisonTable tbody tr');
+            rows.forEach(row => {
+                const rowCat = row.getAttribute('data-cat');
+                if (category === 'all' || rowCat === category) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+            // Re-apply search filter
+            filterTable();
+        }
+
+        // Search in comparison table
+        function filterTable() {
+            const input = document.getElementById('tableSearch').value.toLowerCase();
+            const activeChip = document.querySelector('.filter-chip.active');
+            const activeCategory = activeChip ? activeChip.textContent.toLowerCase() : 'tous';
+            
+            const rows = document.querySelectorAll('#comparisonTable tbody tr');
+            rows.forEach(row => {
+                const text = row.innerText.toLowerCase();
+                const matchesSearch = text.includes(input);
+                
+                // Check category filter
+                let matchesCat = true;
+                const rowCat = row.getAttribute('data-cat');
+                if (window.currentCat && window.currentCat !== 'all') {
+                    matchesCat = (rowCat === window.currentCat);
+                }
+
+                if (matchesSearch && matchesCat) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+
+        // Quiz checking
+        function checkAnswer(qId, selectedIdx, isCorrect, explanation) {
+            const card = document.getElementById(qId);
+            const labels = card.querySelectorAll('.option-label');
+            const feedback = document.getElementById('fb-' + qId);
+
+            labels.forEach((label, idx) => {
+                label.classList.remove('correct', 'incorrect');
+                if (idx === selectedIdx) {
+                    label.classList.add(isCorrect ? 'correct' : 'incorrect');
+                }
+            });
+
+            feedback.className = 'feedback-text show ' + (isCorrect ? 'correct-fb' : 'wrong-fb');
+            feedback.innerHTML = (isCorrect ? '✅ ' : '❌ ') + explanation;
+        }
+
+        // Dark / Light Theme Toggle
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            
+            const icon = document.getElementById('themeIcon');
+            const label = document.getElementById('themeLabel');
+            if (newTheme === 'dark') {
+                icon.textContent = '☀️';
+                label.textContent = 'Mode Clair';
+            } else {
+                icon.textContent = '🌙';
+                label.textContent = 'Mode Sombre';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,1546 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programmation SVT Cycle 4 — Nouveaux Programmes 2027-2028</title>
+  <style>
+    :root {
+      --primary: #1e5f74;
+      --primary-light: #e8f4f8;
+      --primary-dark: #133b49;
+      --secondary: #2d9596;
+      --accent: #f08a5d;
+      --accent-light: #fff2ec;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --sidebar-bg: #ffffff;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --border-hover: #cbd5e1;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --shadow: 0 4px 6px -1px rgba(0,0,0,0.06), 0 2px 4px -2px rgba(0,0,0,0.04);
+      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.03);
+      --radius: 12px;
+      --radius-sm: 6px;
+      --radius-lg: 16px;
+      --transition: all 0.2s ease;
+    }
+
+    [data-theme="dark"] {
+      --primary: #38bdf8;
+      --primary-light: #0c2d3d;
+      --primary-dark: #7dd3fc;
+      --secondary: #2dd4bf;
+      --accent: #fb923c;
+      --accent-light: #3d2112;
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --sidebar-bg: #162032;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --border: #334155;
+      --border-hover: #475569;
+      --shadow: 0 4px 6px -1px rgba(0,0,0,0.3);
+      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.4);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
+    body { background-color: var(--bg); color: var(--text-main); height: 100vh; overflow: hidden; display: flex; flex-direction: column; }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #133b49 0%, #1e5f74 100%);
+      color: white;
+      padding: 0.65rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+      z-index: 20;
+    }
+
+    .brand { display: flex; align-items: center; gap: 0.7rem; }
+    .brand-logo {
+      width: 36px; height: 36px; border-radius: 9px; background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; font-weight: 800; border: 1px solid rgba(255,255,255,0.25);
+    }
+    .brand-text h1 { font-size: 1.1rem; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; }
+    .brand-text small { font-size: 0.72rem; opacity: 0.85; font-weight: 400; }
+
+    .header-center { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
+
+    /* Sélecteur de niveau */
+    .level-nav { display: flex; gap: 0.3rem; background: rgba(0,0,0,0.22); padding: 0.25rem; border-radius: 9999px; }
+    .level-btn {
+      border: none; background: transparent; color: rgba(255,255,255,0.85);
+      padding: 0.4rem 0.85rem; border-radius: 9999px; cursor: pointer; font-size: 0.82rem;
+      font-weight: 700; transition: var(--transition); display: flex; align-items: center; gap: 0.35rem;
+    }
+    .level-btn:hover { color: white; background: rgba(255,255,255,0.12); }
+    .level-btn.active { background: white; color: #133b49; box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+
+    /* Onglets principaux du haut */
+    .main-view-nav { display: flex; gap: 0.3rem; background: rgba(0,0,0,0.28); padding: 0.25rem; border-radius: 10px; }
+    .main-view-btn {
+      border: none; background: transparent; color: rgba(255,255,255,0.85);
+      padding: 0.4rem 0.95rem; border-radius: 8px; cursor: pointer; font-size: 0.82rem;
+      font-weight: 800; transition: var(--transition); display: flex; align-items: center; gap: 0.4rem;
+    }
+    .main-view-btn:hover { color: white; background: rgba(255,255,255,0.15); }
+    .main-view-btn.active { background: var(--secondary); color: white; box-shadow: 0 2px 6px rgba(0,0,0,0.25); }
+
+    .header-actions { display: flex; align-items: center; gap: 0.6rem; }
+    .stat-badge {
+      font-size: 0.75rem; font-weight: 600; background: rgba(255,255,255,0.15);
+      padding: 0.35rem 0.75rem; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.2);
+    }
+    .btn-icon {
+      background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25);
+      color: white; border-radius: 8px; width: 34px; height: 34px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; font-size: 1rem;
+      transition: var(--transition);
+    }
+    .btn-icon:hover { background: rgba(255,255,255,0.25); }
+
+    /* Layout */
+    .app-body { display: flex; flex: 1; overflow: hidden; }
+
+    /* Sidebar (Semainier) */
+    aside {
+      width: 380px; min-width: 320px; background: var(--sidebar-bg); border-right: 1px solid var(--border);
+      display: flex; flex-direction: column; overflow: hidden; z-index: 10; transition: var(--transition);
+    }
+
+    /* En mode plan, la sidebar se masque pour offrir une vue document plein écran */
+    body.mode-plan aside { display: none; }
+
+    .sidebar-controls {
+      padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); display: flex; flex-direction: column; gap: 0.55rem;
+    }
+
+    .search-box { position: relative; }
+    .search-box input {
+      width: 100%; padding: 0.55rem 0.75rem 0.55rem 2.2rem; border-radius: 8px;
+      border: 1px solid var(--border); background: var(--bg); color: var(--text-main);
+      font-size: 0.85rem; outline: none; transition: var(--transition);
+    }
+    .search-box input:focus { border-color: var(--primary); box-shadow: 0 0 0 2px var(--primary-light); }
+    .search-box span { position: absolute; left: 0.7rem; top: 50%; transform: translateY(-50%); font-size: 0.85rem; opacity: 0.5; }
+
+    .view-toggles { display: flex; gap: 0.3rem; background: var(--bg); padding: 0.25rem; border-radius: 8px; }
+    .view-btn {
+      flex: 1; border: none; background: transparent; padding: 0.4rem; font-size: 0.78rem; font-weight: 700;
+      color: var(--text-muted); cursor: pointer; border-radius: 6px; transition: var(--transition); text-align: center;
+    }
+    .view-btn.active { background: var(--card-bg); color: var(--primary); box-shadow: var(--shadow); }
+
+    .filter-chips { display: flex; gap: 0.3rem; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
+    .filter-chips::-webkit-scrollbar { display: none; }
+    .chip {
+      font-size: 0.7rem; font-weight: 600; padding: 0.2rem 0.55rem; border-radius: 9999px;
+      background: var(--bg); border: 1px solid var(--border); color: var(--text-muted);
+      cursor: pointer; white-space: nowrap; transition: var(--transition);
+    }
+    .chip:hover { border-color: var(--primary); color: var(--primary); }
+    .chip.active { background: var(--primary); color: white; border-color: var(--primary); }
+
+    .tree-scroll { flex: 1; overflow-y: auto; padding: 0.75rem 0.6rem; }
+
+    /* Cartes de semaine du Semainier (colorées par partie) */
+    .week-card {
+      padding: 0.65rem 0.75rem; border-radius: 10px; margin-bottom: 0.45rem; border: 1px solid var(--border);
+      background: var(--card-bg); cursor: pointer; transition: var(--transition); display: flex; flex-direction: column; gap: 0.3rem;
+      border-left: 5px solid var(--pc, var(--border));
+    }
+    .week-card:not(.active) {
+      background: color-mix(in srgb, var(--pc, transparent) 5%, var(--card-bg));
+    }
+    .week-card:hover {
+      transform: translateY(-1px); border-color: var(--pc, var(--border-hover));
+      box-shadow: var(--shadow);
+    }
+    .week-card.active {
+      border-color: var(--pc, var(--primary));
+      background: color-mix(in srgb, var(--pc, var(--primary)) 14%, var(--card-bg));
+      box-shadow: 0 0 0 2px color-mix(in srgb, var(--pc, var(--primary)) 30%, transparent);
+    }
+
+    .week-header { display: flex; align-items: center; justify-content: space-between; font-size: 0.75rem; gap: 0.4rem; }
+    .week-badge { font-weight: 800; padding: 0.15rem 0.5rem; border-radius: 6px; font-size: 0.7rem; }
+    .badge-1h { background: #e0f2fe; color: #0369a1; }
+    .badge-2h { background: #ede9fe; color: #6d28d9; }
+    [data-theme="dark"] .badge-1h { background: #0c4a6e; color: #7dd3fc; }
+    [data-theme="dark"] .badge-2h { background: #3b0764; color: #c084fc; }
+
+    .week-theme {
+      font-size: 0.7rem; font-weight: 800; padding: 0.12rem 0.45rem; border-radius: 4px;
+      color: var(--pc, var(--text-muted));
+      background: color-mix(in srgb, var(--pc, #888) 12%, transparent);
+      border: 1px solid color-mix(in srgb, var(--pc, #888) 25%, transparent);
+      letter-spacing: 0.02em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 170px;
+    }
+    .week-title { font-size: 0.85rem; font-weight: 700; line-height: 1.3; color: var(--text-main); }
+    .week-meta { display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.15rem; }
+
+    .tag-pill {
+      font-size: 0.65rem; font-weight: 700; padding: 0.15rem 0.45rem; border-radius: 4px; text-transform: uppercase;
+    }
+    .tag-tp { background: #dcfce7; color: #15803d; }
+    .tag-tc { background: #ffedd5; color: #c2410c; }
+    .tag-eval { background: #fee2e2; color: #b91c1c; }
+    .tag-cours { background: #f1f5f9; color: #475569; }
+    .tag-terrain { background: #ecfccb; color: #4d7c0f; }
+    .tag-debat { background: #fef3c7; color: #b45309; }
+    .tag-projet { background: #ede9fe; color: #6d28d9; }
+
+    .status-dot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; }
+    .status-reprise { background: var(--success); }
+    .status-adaptee { background: var(--warning); }
+    .status-nouvelle { background: #38bdf8; box-shadow: 0 0 6px rgba(56,189,248,0.6); }
+
+    .part-group-title {
+      font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.03em;
+      margin: 0.9rem 0 0.4rem 0.1rem; padding: 0.4rem 0.6rem; border-radius: 8px;
+      color: var(--pc); background: color-mix(in srgb, var(--pc) 10%, transparent); border-left: 4px solid var(--pc);
+    }
+
+    /* Zone principale */
+    .main-wrap { flex: 1; display: flex; flex-direction: column; overflow: hidden; min-width: 0; }
+    main { flex: 1; overflow-y: auto; padding: 1.5rem 2rem 4rem; display: flex; flex-direction: column; gap: 1.25rem; }
+
+    /* Part Header Hero */
+    .hero-banner {
+      background: linear-gradient(90deg, color-mix(in srgb, var(--pc, var(--primary)) 10%, var(--card-bg)), var(--card-bg) 60%);
+      border: 1px solid var(--border); border-left: 6px solid var(--pc, var(--primary));
+      border-radius: var(--radius); padding: 1.5rem 1.75rem; box-shadow: var(--shadow); position: relative;
+    }
+    .hero-meta { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
+    .hero-theme-badge {
+      font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em;
+      padding: 0.25rem 0.6rem; border-radius: 6px;
+      background: color-mix(in srgb, var(--pc, var(--primary)) 15%, transparent);
+      color: var(--pc, var(--primary)); border: 1px solid color-mix(in srgb, var(--pc, var(--primary)) 30%, transparent);
+    }
+    .hero-part-title { font-size: 1.35rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.6rem; }
+    
+    .problematique-card {
+      background: var(--accent-light); border: 1px solid rgba(240,138,93,0.3); border-radius: 10px;
+      padding: 1rem 1.25rem; margin-top: 0.75rem;
+    }
+    .problematique-header {
+      font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;
+      color: var(--accent); display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.3rem;
+    }
+    .problematique-text { font-size: 1rem; font-weight: 700; color: var(--text-main); line-height: 1.45; }
+
+    .hero-ancrage {
+      font-size: 0.85rem; color: var(--text-muted); margin-top: 0.65rem; display: flex; align-items: center; gap: 0.4rem;
+    }
+
+    /* Fil rouge & Femmes */
+    .piliers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1rem; }
+    .pilier-box {
+      background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 1rem;
+      font-size: 0.85rem; line-height: 1.45; box-shadow: var(--shadow);
+    }
+    .pilier-title { font-weight: 700; margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.4rem; }
+
+    /* Fiche Séance Card */
+    .seance-detail-card {
+      background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius);
+      border-top: 5px solid var(--pc, var(--primary));
+      padding: 1.75rem; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 1.25rem;
+    }
+
+    .seance-head {
+      display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; flex-wrap: wrap;
+      padding-bottom: 1rem; border-bottom: 1px solid var(--border);
+    }
+    .seance-head-info h2 { font-size: 1.3rem; font-weight: 800; color: var(--text-main); line-height: 1.3; }
+    .seance-head-sub { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem; }
+
+    .seance-question-box {
+      background: color-mix(in srgb, var(--pc, var(--primary)) 8%, var(--card-bg));
+      border-left: 4px solid var(--pc, var(--primary)); border-radius: 8px;
+      padding: 0.85rem 1.15rem; font-size: 0.95rem; font-weight: 600; color: var(--text-main);
+    }
+
+    .seance-section-title {
+      font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em;
+      color: var(--text-muted); margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.4rem;
+    }
+
+    .seance-desc { font-size: 0.92rem; line-height: 1.6; color: var(--text-main); white-space: pre-line; }
+
+    .trace-box {
+      background: color-mix(in srgb, var(--pc, var(--primary)) 6%, var(--card-bg));
+      border: 1px solid color-mix(in srgb, var(--pc, var(--primary)) 30%, transparent);
+      border-left: 5px solid var(--pc, var(--primary)); border-radius: 10px; padding: 1rem 1.25rem;
+    }
+    .trace-box-head {
+      font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;
+      color: var(--pc, var(--primary)); margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.4rem;
+    }
+    .trace-box-content { font-size: 0.92rem; line-height: 1.6; color: var(--text-main); }
+
+    .notion-row { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.6rem; }
+    .notion {
+      font-size: 0.72rem; font-weight: 700; padding: 0.18rem 0.55rem; border-radius: 9999px;
+      background: color-mix(in srgb, var(--pc, var(--primary)) 14%, transparent);
+      color: var(--text-main); border: 1px solid color-mix(in srgb, var(--pc, var(--primary)) 35%, transparent);
+    }
+
+    .competences-row { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.4rem; }
+    .comp-badge {
+      font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 6px;
+      background: #f1f5f9; border: 1px solid var(--border); color: #334155;
+    }
+    [data-theme="dark"] .comp-badge { background: #334155; color: #f1f5f9; }
+
+    /* Actions buttons */
+    .action-bar { display: flex; gap: 0.75rem; flex-wrap: wrap; padding-top: 0.5rem; }
+    .btn-action {
+      padding: 0.65rem 1.25rem; border-radius: 8px; border: none; font-size: 0.85rem; font-weight: 700;
+      cursor: pointer; transition: var(--transition); display: inline-flex; align-items: center; gap: 0.5rem;
+    }
+    .btn-skillsvt {
+      background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+      color: white; box-shadow: 0 3px 10px rgba(45,149,150,0.3);
+    }
+    .btn-skillsvt:hover { transform: translateY(-1px); box-shadow: 0 5px 15px rgba(45,149,150,0.4); }
+    .btn-pdf {
+      background: var(--card-bg); color: #b91c1c; border: 1px solid #fecaca;
+    }
+    .btn-pdf:hover { background: #fef2f2; border-color: #b91c1c; }
+
+    /* ========================================================
+       VUE « PLAN DÉTAILLÉ DU COURS » (Inspiré progression 2020)
+       ======================================================== */
+    .plan-container { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; flex-direction: column; gap: 1.5rem; }
+    
+    .plan-toolbar {
+      background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 1.2rem 1.5rem; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 0.85rem;
+    }
+    .plan-toolbar-head {
+      display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap;
+    }
+    .plan-toolbar-head h2 { font-size: 1.35rem; font-weight: 800; color: var(--text-main); }
+    .plan-toolbar-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .btn-tool {
+      padding: 0.45rem 0.9rem; border-radius: 8px; border: 1px solid var(--border);
+      background: var(--bg); color: var(--text-main); font-size: 0.8rem; font-weight: 700;
+      cursor: pointer; transition: var(--transition); display: inline-flex; align-items: center; gap: 0.4rem;
+    }
+    .btn-tool:hover { background: var(--primary-light); color: var(--primary); border-color: var(--primary); }
+    .plan-fil-rouge { font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; border-left: 3px solid var(--secondary); padding-left: 0.75rem; }
+
+    /* Thème */
+    .plan-theme-block { display: flex; flex-direction: column; gap: 1rem; }
+    .plan-theme-banner {
+      background: var(--tc, var(--primary)); color: white; padding: 0.85rem 1.25rem; border-radius: var(--radius);
+      font-size: 1.15rem; font-weight: 800; display: flex; justify-content: space-between; align-items: center;
+      box-shadow: var(--shadow);
+    }
+    .plan-theme-banner small { font-size: 0.75rem; font-weight: 600; opacity: 0.9; }
+
+    /* Partie */
+    .plan-part-card {
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-top: 5px solid var(--pc, var(--primary)); border-radius: var(--radius);
+      box-shadow: var(--shadow); overflow: hidden;
+    }
+    .plan-part-header {
+      padding: 1rem 1.35rem; background: color-mix(in srgb, var(--pc, var(--primary)) 8%, var(--card-bg));
+      cursor: pointer; display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem;
+      user-select: none;
+    }
+    .plan-part-header:hover { background: color-mix(in srgb, var(--pc, var(--primary)) 12%, var(--card-bg)); }
+    .plan-part-header h3 { font-size: 1.15rem; font-weight: 800; color: var(--pc, var(--primary)); line-height: 1.3; }
+    .plan-part-header .meta { font-size: 0.75rem; font-weight: 700; color: var(--text-muted); margin-top: 0.25rem; }
+    .plan-toggle-icon { font-size: 1rem; color: var(--pc, var(--primary)); transition: transform 0.2s; }
+    .plan-part-card.collapsed .plan-toggle-icon { transform: rotate(-90deg); }
+    .plan-part-card.collapsed .plan-part-content { display: none; }
+
+    .plan-part-content { padding: 1.25rem 1.35rem; display: flex; flex-direction: column; gap: 1.2rem; }
+
+    .plan-part-pb {
+      background: var(--accent-light); border: 1px solid rgba(240,138,93,0.3); border-radius: 8px;
+      padding: 0.75rem 1rem; font-size: 0.9rem; font-weight: 700; line-height: 1.45;
+    }
+    .plan-part-pb small { font-size: 0.68rem; font-weight: 800; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 0.2rem; }
+
+    .plan-attendus-box {
+      background: var(--bg); border: 1px dashed var(--border); border-radius: 8px; padding: 0.75rem 1rem;
+      font-size: 0.82rem; line-height: 1.5; color: var(--text-muted);
+    }
+    .plan-attendus-box strong { color: var(--text-main); }
+    .plan-attendus-box ul { margin-left: 1.2rem; margin-top: 0.25rem; }
+
+    /* Chapitre */
+    .plan-chap-card {
+      border: 1px solid var(--border); border-left: 4px solid var(--pc, var(--primary));
+      border-radius: 10px; background: var(--card-bg); overflow: hidden;
+    }
+    .plan-chap-head {
+      padding: 0.8rem 1.1rem; background: color-mix(in srgb, var(--pc, var(--primary)) 6%, var(--card-bg));
+      border-bottom: 1px solid var(--border);
+    }
+    .plan-chap-head h4 { font-size: 1rem; font-weight: 800; color: var(--text-main); }
+    .plan-chap-head h4 span { color: var(--pc, var(--primary)); margin-right: 0.35rem; }
+    .plan-chap-pb {
+      font-size: 0.85rem; font-weight: 600; font-style: italic; color: var(--text-muted); margin-top: 0.25rem;
+    }
+
+    .plan-chap-body { padding: 1rem 1.1rem; display: flex; flex-direction: column; gap: 1rem; }
+
+    /* Section & Activité */
+    .plan-sec-item {
+      background: var(--bg); border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.85rem 1rem; display: flex; flex-direction: column; gap: 0.5rem;
+    }
+    .plan-sec-title {
+      font-size: 0.88rem; font-weight: 800; color: var(--pc, var(--primary)); display: flex; align-items: center; justify-content: space-between;
+    }
+    .plan-sub-pb {
+      font-size: 0.84rem; font-weight: 600; color: var(--text-muted); font-style: italic;
+    }
+    .plan-act-row {
+      display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
+      background: var(--card-bg); border: 1px solid var(--border); border-radius: 6px;
+      padding: 0.5rem 0.75rem; cursor: pointer; transition: var(--transition);
+    }
+    .plan-act-row:hover {
+      border-color: var(--pc, var(--primary)); transform: translateX(3px);
+      box-shadow: var(--shadow);
+    }
+    .plan-act-title { font-size: 0.85rem; font-weight: 700; color: var(--text-main); display: flex; align-items: center; gap: 0.5rem; }
+    .plan-act-badge {
+      font-size: 0.68rem; font-weight: 800; padding: 0.15rem 0.45rem; border-radius: 4px;
+      background: var(--pc, var(--primary)); color: white; white-space: nowrap;
+    }
+    .plan-sec-trace {
+      font-size: 0.85rem; line-height: 1.55; color: var(--text-main);
+      padding: 0.6rem 0.8rem; background: color-mix(in srgb, var(--pc, var(--primary)) 5%, var(--card-bg));
+      border-left: 3px solid var(--pc, var(--primary)); border-radius: 0 6px 6px 0;
+    }
+    .plan-sec-trace strong { color: var(--pc, var(--primary)); }
+
+    /* Bilan Chapitre */
+    .plan-chap-bilan {
+      background: color-mix(in srgb, var(--pc, var(--primary)) 8%, var(--card-bg));
+      border: 1px dashed color-mix(in srgb, var(--pc, var(--primary)) 40%, transparent);
+      border-radius: 8px; padding: 0.85rem 1rem;
+    }
+    .plan-chap-bilan-title {
+      font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;
+      color: var(--pc, var(--primary)); margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.35rem;
+    }
+    .plan-chap-bilan-text { font-size: 0.88rem; line-height: 1.55; color: var(--text-main); }
+
+    
+    /* ========================================================
+       VUE « BANQUE D'ACTIVITÉS PÉDAGOGIQUES »
+       ======================================================== */
+    .act-toolbar {
+      background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 1.2rem 1.5rem; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 0.85rem;
+    }
+    .act-toolbar-head {
+      display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap;
+    }
+    .act-toolbar-head h2 { font-size: 1.35rem; font-weight: 800; color: var(--text-main); }
+    .act-filter-row {
+      display: flex; gap: 0.6rem; flex-wrap: wrap; align-items: center;
+    }
+    .act-search-input {
+      flex: 1; min-width: 250px; padding: 0.45rem 0.85rem; border-radius: 8px;
+      border: 1px solid var(--border); background: var(--bg); color: var(--text-main); font-size: 0.85rem;
+    }
+    .act-select {
+      padding: 0.45rem 0.85rem; border-radius: 8px; border: 1px solid var(--border);
+      background: var(--bg); color: var(--text-main); font-size: 0.82rem; font-weight: 600; cursor: pointer;
+    }
+    .act-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(480px, 1fr)); gap: 1.25rem;
+    }
+    @media (max-width: 768px) {
+      .act-grid { grid-template-columns: 1fr; }
+    }
+    .act-card {
+      background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius);
+      box-shadow: var(--shadow); display: flex; flex-direction: column; overflow: hidden;
+      border-top: 5px solid var(--pc, var(--primary)); transition: var(--transition);
+    }
+    .act-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+    .act-card-head {
+      padding: 1rem 1.25rem; background: color-mix(in srgb, var(--pc, var(--primary)) 8%, var(--card-bg));
+      border-bottom: 1px solid var(--border); display: flex; flex-direction: column; gap: 0.35rem;
+    }
+    .act-card-badges {
+      display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; flex-wrap: wrap;
+    }
+    .act-badge-st {
+      font-size: 0.68rem; font-weight: 800; padding: 0.15rem 0.5rem; border-radius: 9999px; text-transform: uppercase;
+    }
+    .st-nouvelle { background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; }
+    .st-reprise { background: #dcfce7; color: #15803d; border: 1px solid #bbf7d0; }
+    .act-card-title { font-size: 1.05rem; font-weight: 800; color: var(--text-main); line-height: 1.35; }
+    .act-card-meta { font-size: 0.75rem; color: var(--text-muted); font-weight: 600; }
+    .act-card-body {
+      padding: 1rem 1.25rem; display: flex; flex-direction: column; gap: 0.85rem; flex: 1; font-size: 0.88rem;
+    }
+    .act-pb-box {
+      background: var(--accent-light); border-left: 3px solid var(--accent); border-radius: 0 6px 6px 0;
+      padding: 0.6rem 0.85rem; font-size: 0.86rem; font-weight: 700; color: var(--text-main);
+    }
+    .act-obstacle-box {
+      background: rgba(239,68,68,0.06); border: 1px solid rgba(239,68,68,0.2); border-radius: 6px;
+      padding: 0.6rem 0.85rem; font-size: 0.82rem; line-height: 1.45;
+    }
+    .act-docs-list {
+      display: flex; flex-direction: column; gap: 0.25rem; font-size: 0.8rem; color: var(--text-muted);
+    }
+    .act-docs-list span { font-weight: 700; color: var(--text-main); }
+    .act-card-footer {
+      padding: 0.85rem 1.25rem; background: var(--bg); border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; flex-wrap: wrap;
+    }
+
+    /* Toast notification */
+    .toast {
+      position: fixed; bottom: 20px; right: 20px; background: #1e293b; color: white;
+      padding: 0.75rem 1.25rem; border-radius: 8px; font-size: 0.85rem; font-weight: 700;
+      box-shadow: var(--shadow-lg); z-index: 1000; opacity: 0; transform: translateY(10px);
+      transition: var(--transition); pointer-events: none;
+    }
+    .toast.show { opacity: 1; transform: translateY(0); }
+
+    /* Modal */
+    .modal-overlay {
+      position: fixed; inset: 0; background: rgba(15,23,42,0.6); backdrop-filter: blur(4px);
+      display: none; align-items: center; justify-content: center; z-index: 100; padding: 1.5rem;
+    }
+    .modal-overlay.open { display: flex; }
+
+    .modal-content {
+      background: var(--card-bg); border-radius: var(--radius-lg); width: 100%; max-width: 900px;
+      max-height: 90vh; overflow-y: auto; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.3);
+      border: 1px solid var(--border); display: flex; flex-direction: column;
+    }
+
+    .modal-head {
+      padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--border); display: flex;
+      justify-content: space-between; align-items: center; position: sticky; top: 0;
+      background: var(--card-bg); z-index: 5;
+    }
+    .modal-head h3 { font-size: 1.2rem; font-weight: 800; color: var(--text-main); }
+    .btn-close {
+      background: transparent; border: none; font-size: 1.3rem; color: var(--text-muted); cursor: pointer;
+    }
+
+    .modal-body { padding: 1.5rem; display: flex; flex-direction: column; gap: 1.25rem; font-size: 0.92rem; line-height: 1.6; }
+
+    /* UDL Toggles */
+    .udl-tabs { display: flex; gap: 0.4rem; border-bottom: 2px solid var(--border); margin-bottom: 0.75rem; }
+    .udl-tab-btn {
+      border: none; background: transparent; padding: 0.6rem 1rem; font-size: 0.85rem; font-weight: 700;
+      color: var(--text-muted); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px;
+      transition: var(--transition);
+    }
+    .udl-tab-btn.active { color: var(--primary); border-bottom-color: var(--primary); }
+
+    .coups-pouce-accordion { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.75rem; }
+    .coup-card {
+      border: 1px solid var(--border); border-radius: 8px; background: var(--bg); overflow: hidden;
+    }
+    .coup-head {
+      padding: 0.6rem 0.9rem; font-size: 0.82rem; font-weight: 700; cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center; user-select: none;
+    }
+    .coup-body { padding: 0.75rem 0.9rem; font-size: 0.85rem; border-top: 1px solid var(--border); display: none; }
+    .coup-card.open .coup-body { display: block; }
+
+    /* Documents Box */
+    .docs-grid { display: flex; flex-direction: column; gap: 0.75rem; }
+    .doc-box {
+      background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 0.85rem;
+    }
+    .doc-title { font-size: 0.82rem; font-weight: 800; color: var(--primary); margin-bottom: 0.3rem; }
+
+    /* LSU Grid */
+    .lsu-table { width: 100%; border-collapse: collapse; font-size: 0.8rem; margin-top: 0.5rem; }
+    .lsu-table th, .lsu-table td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; vertical-align: top; }
+    .lsu-table th { background: var(--bg); font-weight: 700; }
+    .lsu-mi { background: rgba(239,68,68,0.1); color: #b91c1c; font-weight: 700; }
+    .lsu-mf { background: rgba(245,158,11,0.1); color: #b45309; font-weight: 700; }
+    .lsu-ms { background: rgba(16,185,129,0.1); color: #047857; font-weight: 700; }
+    .lsu-tbm { background: rgba(14,165,233,0.1); color: #0369a1; font-weight: 700; }
+
+    /* Impression propre (style rapport pédagogique officiel) */
+    @media print {
+      header, aside, .plan-toolbar-actions, .modal-overlay, .toast { display: none !important; }
+      body { height: auto; overflow: visible; background: white; color: black; }
+      .app-body, .main-wrap, main { overflow: visible; padding: 0; }
+      .plan-part-card.collapsed .plan-part-content { display: flex !important; }
+      .plan-part-card { break-inside: avoid; border: 1px solid #ccc; box-shadow: none; margin-bottom: 1.5rem; }
+      .plan-theme-banner { background: #333 !important; color: white !important; }
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .app-body { flex-direction: column; }
+      aside { width: 100%; height: 350px; border-right: none; border-bottom: 1px solid var(--border); }
+      main { padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Header -->
+  <header>
+    <div class="brand">
+      <div class="brand-logo">🧬</div>
+      <div class="brand-text">
+        <h1>Programmation SVT Cycle 4</h1>
+        <small>Nouveaux Programmes Officiels (Projet CSP 2025 / 2027-2028)</small>
+      </div>
+    </div>
+
+    <!-- Centre : Niveaux + Onglets Semainier / Plan -->
+    <div class="header-center">
+      <!-- Niveau Nav -->
+      <nav class="level-nav">
+        <button class="level-btn" data-level="5e" onclick="switchLevel('5e')">5ème · 66h</button>
+        <button class="level-btn active" data-level="4e" onclick="switchLevel('4e')">4ème · 66h</button>
+        <button class="level-btn" data-level="3e" onclick="switchLevel('3e')">3ème · 66h</button>
+      </nav>
+
+      <!-- Trois onglets principaux -->
+      <nav class="main-view-nav">
+        <button class="main-view-btn active" id="tabSeanceBtn" onclick="switchTab('seance')">
+          <span>📅 Semainier</span>
+        </button>
+        <button class="main-view-btn" id="tabPlanBtn" onclick="switchTab('plan')">
+          <span>📑 Plan détaillé</span>
+        </button>
+        <button class="main-view-btn" id="tabActivitesBtn" onclick="switchTab('activites')">
+          <span>🔬 Activités</span>
+        </button>
+      </nav>
+    </div>
+
+    <!-- Stat badges & Theme toggle -->
+    <div class="header-actions">
+      <div class="stat-badge">⏱️ 44 Semaines (1h / 2h)</div>
+      <div class="stat-badge">🎯 Socle LSU D1-D5</div>
+      <button class="btn-icon" onclick="toggleTheme()" title="Basculer Mode Sombre/Clair">🌓</button>
+    </div>
+  </header>
+
+  <!-- App Body -->
+  <div class="app-body">
+    
+    <!-- Sidebar : Semainier (affiché en mode 'seance') -->
+    <aside id="sidebarSeances">
+      <div class="sidebar-controls">
+        <div class="search-box">
+          <span>🔍</span>
+          <input type="text" id="searchInput" placeholder="Rechercher séance, notion, compétence..." oninput="filterTree()">
+        </div>
+
+        <div class="view-toggles">
+          <button class="view-btn active" id="btnViewWeeks" onclick="switchView('weeks')">📅 Semainier (S1 à S44)</button>
+          <button class="view-btn" id="btnViewThemes" onclick="switchView('themes')">📚 Thèmes B.O.</button>
+        </div>
+
+        <div class="filter-chips">
+          <span class="chip active" data-filter="all" onclick="setFilter('all', this)">Tous</span>
+          <span class="chip" data-filter="tc" onclick="setFilter('tc', this)">Tâche Complexe</span>
+          <span class="chip" data-filter="tp" onclick="setFilter('tp', this)">TP Labo</span>
+          <span class="chip" data-filter="eval" onclick="setFilter('eval', this)">Éval DNB 10 pts</span>
+          <span class="chip" data-filter="nouvelle" onclick="setFilter('nouvelle', this)">✨ skillsvt</span>
+          <span class="chip" data-filter="pdf" onclick="setFilter('pdf', this)">📄 Avec PDF</span>
+        </div>
+      </div>
+
+      <div class="tree-scroll" id="treeContainer">
+        <!-- Rendu dynamique des semaines colorées -->
+      </div>
+    </aside>
+
+    <!-- Zone principale -->
+    <div class="main-wrap">
+      <main id="mainContainer">
+        <!-- Rendered by JS : fiche de séance OU plan détaillé -->
+      </main>
+    </div>
+
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toastNotification">Plan copié dans le presse-papier !</div>
+
+  <!-- Modal Fiche Détaillée skillsvt -->
+  <div class="modal-overlay" id="skillsvtModal" onclick="if(event.target===this)closeModal()">
+    <div class="modal-content">
+      <div class="modal-head">
+        <h3 id="modalTitle">Fiche d'Investigation Différenciée</h3>
+        <button class="btn-close" onclick="closeModal()">✕</button>
+      </div>
+      <div class="modal-body" id="modalBody">
+        <!-- Dynamic content -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Fiches PDF -->
+  <div class="modal-overlay" id="pdfModal" onclick="if(event.target===this)closePdfModal()">
+    <div class="modal-content" style="max-width: 600px;">
+      <div class="modal-head">
+        <h3 id="pdfModalTitle">Fiches PDF associées</h3>
+        <button class="btn-close" onclick="closePdfModal()">✕</button>
+      </div>
+      <div class="modal-body" id="pdfModalBody">
+        <!-- Dynamic PDF links -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts de données -->
+  <script>
+    (function() {
+      const basePath = window.location.pathname.endsWith('/app/index.html') || window.location.pathname.endsWith('\\app\\index.html') ? 'data/' : 'app/data/';
+      const files = ['5e.js', '4e.js', '3e.js', 'activites.js', 'pdfs.js', 'traces.js'];
+      files.forEach(f => {
+        document.write('<script src="' + basePath + f + '"><\/script>');
+      });
+    })();
+  </script>
+
+  <!-- Application Logic -->
+  <script>
+    "use strict";
+
+    let state = {
+      level: "4e",
+      viewMode: "weeks", // "weeks" or "themes"
+      tab: "seance", // "seance" (Semainier) or "plan" (Plan détaillé)
+      filter: "all",
+      search: "",
+      selectedSeanceId: null
+    };
+
+    /* Palettes de couleurs pour les thèmes et parties */
+    const PART_PALETTE = ["#0277bd", "#00838f", "#558b2f", "#c62828", "#6a1b9a", "#ad1457", "#757575"];
+    const THEME_PALETTE = ["#1e5f74", "#2e7d32", "#8e24aa", "#d84315"];
+
+    function partColor(pt, thIdx, ptIdx) {
+      return pt.couleur || PART_PALETTE[(thIdx * 3 + ptIdx) % PART_PALETTE.length];
+    }
+    function themeColor(th, thIdx) {
+      return th.couleur || THEME_PALETTE[thIdx % THEME_PALETTE.length];
+    }
+
+    function init() {
+      const seances = getAllSeances(state.level);
+      if (seances.length > 0) {
+        state.selectedSeanceId = seances[0]._meta.uniqueId;
+      }
+      render();
+    }
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute("data-theme") || "light";
+      const next = current === "light" ? "dark" : "light";
+      html.setAttribute("data-theme", next);
+      localStorage.setItem("svt_theme", next);
+    }
+    const savedTheme = localStorage.getItem("svt_theme");
+    if (savedTheme) document.documentElement.setAttribute("data-theme", savedTheme);
+
+    function switchLevel(lvl) {
+      state.level = lvl;
+      document.querySelectorAll(".level-btn").forEach(b => {
+        b.classList.toggle("active", b.dataset.level === lvl);
+      });
+      const seances = getAllSeances(state.level);
+      state.selectedSeanceId = seances.length > 0 ? seances[0]._meta.uniqueId : null;
+      render();
+    }
+
+    function switchTab(tab) {
+      state.tab = tab;
+      const bS = document.getElementById("tabSeanceBtn");
+      const bP = document.getElementById("tabPlanBtn");
+      const bA = document.getElementById("tabActivitesBtn");
+      if (bS) bS.classList.toggle("active", tab === "seance");
+      if (bP) bP.classList.toggle("active", tab === "plan");
+      if (bA) bA.classList.toggle("active", tab === "activites");
+      document.body.classList.toggle("mode-plan", tab === "plan" || tab === "activites");
+      renderMain();
+      const mc = document.getElementById("mainContainer");
+      if (mc) mc.scrollTop = 0;
+    }
+
+    function switchView(mode) {
+      state.viewMode = mode;
+      document.getElementById("btnViewWeeks").classList.toggle("active", mode === "weeks");
+      document.getElementById("btnViewThemes").classList.toggle("active", mode === "themes");
+      renderTree();
+    }
+
+    function setFilter(flt, el) {
+      state.filter = flt;
+      document.querySelectorAll(".filter-chips .chip").forEach(c => c.classList.remove("active"));
+      el.classList.add("active");
+      renderTree();
+    }
+
+    function filterTree() {
+      state.search = document.getElementById("searchInput").value.toLowerCase().trim();
+      renderTree();
+    }
+
+    function selectSeance(uid, goToSeance) {
+      state.selectedSeanceId = uid;
+      if (goToSeance && state.tab !== "seance") {
+        switchTab("seance");
+      } else {
+        render();
+      }
+      const mc = document.getElementById("mainContainer");
+      if (mc) mc.scrollTop = 0;
+    }
+
+    /* Récupération et aplatissement des séances avec métadonnées complètes */
+    function getAllSeances(lvl) {
+      const data = (window.PROG && window.PROG.levels && window.PROG.levels[lvl]);
+      if (!data) return [];
+      const out = [];
+      let flatPart = 0;
+
+      data.themes.forEach((th, thIdx) => {
+        (th.parties || []).forEach((pt, ptIdx) => {
+          flatPart++;
+          const pCol = partColor(pt, thIdx, ptIdx);
+          (pt.chapitres || []).forEach(ch => {
+            (ch.sections || []).forEach(sec => {
+              (sec.seances || []).forEach((s, idx) => {
+                const uniqueId = `${lvl}_S${s.s}_idx${idx}`;
+                s._meta = {
+                  uniqueId,
+                  level: lvl,
+                  themeCode: th.code,
+                  themeTitle: th.titre,
+                  themeColor: themeColor(th, thIdx),
+                  partCode: pt.code,
+                  partTitle: pt.titre,
+                  partNum: flatPart,
+                  color: pCol,
+                  problematique: pt.problematique,
+                  ancrage: pt.ancrage,
+                  lien: pt.lien,
+                  attendus: pt.attendus,
+                  chapitreCode: ch.code,
+                  chapitreTitle: ch.titre,
+                  chapitrePb: ch.pb,
+                  sectionCode: sec.code,
+                  sectionTitle: sec.titre,
+                  traceKey: `${flatPart}-${ch.code}`
+                };
+                out.push(s);
+              });
+            });
+          });
+        });
+      });
+      return out;
+    }
+
+    function getTrace(key) {
+      return (window.PROG && window.PROG.traces && window.PROG.traces[state.level] && window.PROG.traces[state.level][key]) || null;
+    }
+
+    function render() {
+      renderTree();
+      renderMain();
+    }
+
+    /* ========================================================
+       RENDU DU SEMAINIER (Sidebar de gauche)
+       ======================================================== */
+    function renderTree() {
+      const container = document.getElementById("treeContainer");
+      if (!container) return;
+      container.innerHTML = "";
+      const seances = getAllSeances(state.level);
+
+      const filtered = seances.filter(s => {
+        if (state.search) {
+          const text = `${s.titre} ${s.desc} ${s.q || ''} ${s._meta.partTitle} ${s._meta.chapitreTitle} ${(s.comp||[]).join(' ')}`.toLowerCase();
+          if (!text.includes(state.search)) return false;
+        }
+        if (state.filter === "tc" && s.type !== "tc") return false;
+        if (state.filter === "tp" && s.type !== "tp") return false;
+        if (state.filter === "eval" && s.type !== "eval" && s.type !== "dnb") return false;
+        if (state.filter === "nouvelle" && s.st !== "nouvelle") return false;
+        if (state.filter === "pdf") {
+          const hasPdf = (s.res || []).some(r => r.startsWith("pdf:"));
+          if (!hasPdf) return false;
+        }
+        return true;
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = `<div style="text-align:center; padding:2rem; color:var(--text-muted); font-size:0.85rem;">Aucune séance trouvée.</div>`;
+        return;
+      }
+
+      if (state.viewMode === "weeks") {
+        let lastPart = null;
+        filtered.forEach(s => {
+          // Affichage d'un séparateur de partie quand on change de partie
+          if (s._meta.partTitle !== lastPart) {
+            lastPart = s._meta.partTitle;
+            const sep = document.createElement("div");
+            sep.className = "part-group-title";
+            sep.style.setProperty("--pc", s._meta.color);
+            sep.textContent = `${s._meta.partCode} · ${s._meta.partTitle.replace(/^Partie\s*\d+\s*[—–-]\s*/i, '').split(':')[0]}`;
+            container.appendChild(sep);
+          }
+
+          const card = document.createElement("div");
+          card.className = "week-card" + (s._meta.uniqueId === state.selectedSeanceId ? " active" : "");
+          card.style.setProperty("--pc", s._meta.color);
+          card.onclick = () => selectSeance(s._meta.uniqueId, false);
+
+          const hasPdf = (s.res || []).some(r => r.startsWith("pdf:"));
+          const hasSkill = !!s.act;
+
+          card.innerHTML = `
+            <div class="week-header">
+              <span class="week-badge ${s.h === 1 ? 'badge-1h' : 'badge-2h'}">Semaine ${s.s} · ${s.h}h</span>
+              <span class="week-theme">${s._meta.partCode} · Ch.${s._meta.chapitreCode}</span>
+            </div>
+            <div class="week-title">${s.titre}</div>
+            <div class="week-meta">
+              <span class="tag-pill tag-${s.type}">${s.type.toUpperCase()}</span>
+              <span class="status-dot status-${s.st}" title="${s.st === 'nouvelle' ? 'Nouvelle fiche skillsvt' : s.st === 'reprise' ? 'Reprise de svt-2027' : 'Adaptée'}"></span>
+              ${hasSkill ? '<span style="font-size:0.7rem;" title="Fiche experte disponible">🌟</span>' : ''}
+              ${hasPdf ? '<span style="font-size:0.7rem;" title="Document PDF associé">📄</span>' : ''}
+            </div>
+          `;
+          container.appendChild(card);
+        });
+      } else {
+        // Regroupement par Partie / Thème
+        const parts = {};
+        filtered.forEach(s => {
+          const key = s._meta.partTitle;
+          if (!parts[key]) parts[key] = [];
+          parts[key].push(s);
+        });
+
+        for (const [partTitle, sList] of Object.entries(parts)) {
+          const groupTitle = document.createElement("div");
+          groupTitle.className = "part-group-title";
+          groupTitle.style.setProperty("--pc", sList[0]._meta.color);
+          groupTitle.textContent = partTitle;
+          container.appendChild(groupTitle);
+
+          sList.forEach(s => {
+            const card = document.createElement("div");
+            card.className = "week-card" + (s._meta.uniqueId === state.selectedSeanceId ? " active" : "");
+            card.style.setProperty("--pc", s._meta.color);
+            card.onclick = () => selectSeance(s._meta.uniqueId, false);
+            card.innerHTML = `
+              <div class="week-header">
+                <span class="week-badge ${s.h === 1 ? 'badge-1h' : 'badge-2h'}">S${s.s} (${s.h}h)</span>
+                <span class="tag-pill tag-${s.type}">${s.type.toUpperCase()}</span>
+              </div>
+              <div class="week-title">${s.titre}</div>
+            `;
+            container.appendChild(card);
+          });
+        }
+      }
+    }
+
+    /* ========================================================
+       RENDU DU PANNEAU PRINCIPAL (Séance OU Plan)
+       ======================================================== */
+    function renderMain() {
+      const container = document.getElementById("mainContainer");
+      if (!container) return;
+
+      if (state.tab === "plan") {
+        renderPlanView(container);
+      } else if (state.tab === "activites") {
+        renderActivitesView(container);
+      } else {
+        renderSeanceView(container);
+      }
+    }
+
+    /* Fiche détaillée de la séance (Onglet Semainier) */
+    function renderSeanceView(container) {
+      const seances = getAllSeances(state.level);
+      const s = seances.find(item => item._meta.uniqueId === state.selectedSeanceId) || seances[0];
+
+      if (!s) {
+        container.innerHTML = `<div style="text-align:center; padding:3rem;">Aucune séance sélectionnée.</div>`;
+        return;
+      }
+
+      container.style.setProperty("--pc", s._meta.color);
+      const levelData = window.PROG.levels[state.level];
+      const hasSkill = !!s.act && window.PROG.activites[s.act];
+      const pdfList = (s.res || []).filter(r => r.startsWith("pdf:")).map(r => r.replace("pdf:", ""));
+      const tr = getTrace(s._meta.traceKey);
+      const sectionTrace = tr && tr.sec && tr.sec[s._meta.sectionCode];
+
+      container.innerHTML = `
+        <!-- Hero Banner avec thématique et problématique -->
+        <div class="hero-banner">
+          <div class="hero-meta">
+            <span class="hero-theme-badge">${s._meta.themeTitle}</span>
+            <span style="font-size:0.8rem; font-weight:700; opacity:0.85;">${s._meta.partTitle}</span>
+          </div>
+          <div class="hero-part-title">${s._meta.chapitreCode} — ${s._meta.chapitreTitle}</div>
+
+          <div class="problematique-card">
+            <div class="problematique-header">
+              <span>🎯 Problématique d'investigation</span>
+            </div>
+            <div class="problematique-text">« ${s._meta.problematique || s._meta.chapitrePb} »</div>
+          </div>
+
+          <div class="hero-ancrage">
+            <span>📍 <strong>Ancrage dans le réel :</strong> ${s._meta.ancrage || 'Observations et démarches expérimentales'}</span>
+          </div>
+        </div>
+
+        <!-- Fil rouge & Femmes scientifiques -->
+        <div class="piliers-grid">
+          <div class="pilier-box">
+            <div class="pilier-title"><span>🔬</span> Faire des sciences & Épistémologie (${state.level})</div>
+            <div style="font-size:0.82rem; color:var(--text-muted);">${levelData.fds}</div>
+          </div>
+          <div class="pilier-box">
+            <div class="pilier-title"><span>👩‍🔬</span> Femmes scientifiques à l'honneur</div>
+            <div style="font-size:0.82rem; color:var(--text-muted);">${(levelData.femmes || []).join(" • ")}</div>
+          </div>
+        </div>
+
+        <!-- Détail de la séance -->
+        <div class="seance-detail-card">
+          <div class="seance-head">
+            <div class="seance-head-info">
+              <h2>Semaine ${s.s} : ${s.titre}</h2>
+              <div class="seance-head-sub">
+                ${s._meta.sectionCode} · ${s._meta.sectionTitle} — Volume : <strong>${s.h} heure${s.h > 1 ? 's' : ''}</strong> (${s.h === 1 ? 'Semaine impaire' : 'Semaine paire'})
+              </div>
+            </div>
+            <div style="display:flex; gap:0.4rem; align-items:center;">
+              <span class="tag-pill tag-${s.type}" style="font-size:0.75rem; padding:0.35rem 0.75rem;">${s.type.toUpperCase()}</span>
+              <span class="stat-badge" style="background:var(--bg); border-color:var(--border); color:var(--text-main);">
+                Statut : ${s.st === 'nouvelle' ? '✨ Nouvelle fiche skillsvt' : s.st === 'reprise' ? '🟢 Reprise svt-2027' : '🟡 Adaptée'}
+              </span>
+            </div>
+          </div>
+
+          ${s.q ? `
+            <div class="seance-question-box">
+              ❓ <strong>Question posée aux élèves :</strong> ${s.q}
+            </div>
+          ` : ''}
+
+          <div>
+            <div class="seance-section-title">📋 Déroulement & Démarche d'investigation</div>
+            <div class="seance-desc">${s.desc}</div>
+          </div>
+
+          ${s.fds ? `
+            <div style="background:rgba(124,58,237,0.08); border-left:4px solid #7c3aed; border-radius:8px; padding:0.75rem 1rem; font-size:0.85rem;">
+              <strong>🔬 Repère épistémologique (« Faire des sciences ») :</strong> ${s.fds}
+            </div>
+          ` : ''}
+
+          <!-- Trace écrite visée pour les élèves -->
+          ${sectionTrace ? `
+            <div class="trace-box">
+              <div class="trace-box-head">✍️ Trace écrite visée pour les élèves (Bilan séance)</div>
+              <div class="trace-box-content">${sectionTrace}</div>
+              ${tr.notions ? `
+                <div class="notion-row">
+                  ${tr.notions.map(n => `<span class="notion">${n}</span>`).join('')}
+                </div>
+              ` : ''}
+            </div>
+          ` : ''}
+
+          <!-- Compétences Socle LSU -->
+          <div>
+            <div class="seance-section-title">🎯 Compétences travaillées (Socle Commun / LSU)</div>
+            <div class="competences-row">
+              ${(s.comp || []).map(c => `<span class="comp-badge"><strong>${c}</strong> — ${getCompLabel(c)}</span>`).join('')}
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div class="action-bar">
+            ${hasSkill ? `
+              <button class="btn-action btn-skillsvt" onclick="openSkillsvtModal('${s.act}')">
+                🌟 Consulter la Fiche d'Investigation Différenciée (skillsvt)
+              </button>
+            ` : ''}
+
+            ${pdfList.length > 0 ? `
+              <button class="btn-action btn-pdf" onclick="openPdfModal('${s._meta.uniqueId}')">
+                📄 Fiches PDF disponibles (${pdfList.length})
+              </button>
+            ` : ''}
+          </div>
+        </div>
+      `;
+    }
+
+    /* ========================================================
+       VUE « PLAN DÉTAILLÉ DU COURS » (Structure type 2020)
+       ======================================================== */
+    function renderPlanView(container) {
+      container.style.removeProperty("--pc");
+      const data = window.PROG.levels[state.level];
+      if (!data) return;
+
+      let flatPart = 0;
+      let totalH = 0;
+      let totalS = 0;
+      (data.themes || []).forEach(th => (th.parties || []).forEach(pt => (pt.chapitres || []).forEach(ch => (ch.sections || []).forEach(sec => (sec.seances || []).forEach(s => {
+        totalH += (s.h || 0); totalS++;
+      })))));
+
+      let html = `
+        <div class="plan-container">
+          <!-- Barre d'outils enseignant -->
+          <div class="plan-toolbar">
+            <div class="plan-toolbar-head">
+              <div>
+                <h2>📑 Plan détaillé de la progression pédagogique — ${data.titre}</h2>
+                <div style="font-size:0.8rem; color:var(--text-muted); font-weight:700; margin-top:0.2rem;">
+                  Volume officiel : <strong>${totalH} heures</strong> · <strong>${totalS} séances</strong> (Cycle 4 · Nouveaux programmes)
+                </div>
+              </div>
+              <div class="plan-toolbar-actions">
+                <button class="btn-tool" onclick="document.querySelectorAll('.plan-part-card').forEach(p=>p.classList.remove('collapsed'))">⏷ Tout déplier</button>
+                <button class="btn-tool" onclick="document.querySelectorAll('.plan-part-card').forEach(p=>p.classList.add('collapsed'))">⏶ Tout replier</button>
+                <button class="btn-tool" onclick="copyPlanText()">📋 Copier le plan (texte)</button>
+                <button class="btn-tool" onclick="window.print()">🖨️ Imprimer le plan</button>
+              </div>
+            </div>
+            <div class="plan-fil-rouge">
+              <strong>Fil conducteur annuel :</strong> ${data.filRouge}
+            </div>
+          </div>
+      `;
+
+      // Boucle Thèmes -> Parties -> Chapitres -> Sections
+      (data.themes || []).forEach((th, thIdx) => {
+        const tc = themeColor(th, thIdx);
+
+        html += `
+          <div class="plan-theme-block">
+            <div class="plan-theme-banner" style="--tc:${tc}">
+              <span>${th.titre.toUpperCase()}</span>
+              <small>${th.officiel || ''}</small>
+            </div>
+        `;
+
+        (th.parties || []).forEach((pt, ptIdx) => {
+          flatPart++;
+          const pCol = partColor(pt, thIdx, ptIdx);
+          const currentPartNum = flatPart;
+
+          let partHours = 0;
+          let partSeances = 0;
+          (pt.chapitres || []).forEach(ch => (ch.sections || []).forEach(sec => (sec.seances || []).forEach(s => {
+            partHours += s.h; partSeances++;
+          })));
+
+          html += `
+            <div class="plan-part-card" style="--pc:${pCol}">
+              <div class="plan-part-header" onclick="togglePlanPart(this)">
+                <div>
+                  <h3>${pt.titre}</h3>
+                  <div class="meta">${pt.code} · ${partSeances} séances (${partHours} h)${pt.officiel ? ' · ' + pt.officiel : ''}</div>
+                </div>
+                <span class="plan-toggle-icon">▼</span>
+              </div>
+              <div class="plan-part-content">
+                <!-- Problématique de la partie -->
+                <div class="plan-part-pb">
+                  <small>🎯 Problématique générale de la partie</small>
+                  « ${pt.problematique || ''} »
+                </div>
+
+                ${(pt.attendus && pt.attendus.length) ? `
+                  <div class="plan-attendus-box">
+                    <strong>📌 Attendus institutionnels du B.O. (Trace globale) :</strong>
+                    <ul>${pt.attendus.map(a => `<li>${a}</li>`).join('')}</ul>
+                  </div>
+                ` : ''}
+
+                <!-- Chapitres du plan -->
+                <div style="display:flex; flex-direction:column; gap:1rem;">
+          `;
+
+          (pt.chapitres || []).forEach(ch => {
+            const trKey = `${currentPartNum}-${ch.code}`;
+            const tr = getTrace(trKey);
+
+            html += `
+              <div class="plan-chap-card" style="--pc:${pCol}">
+                <div class="plan-chap-head">
+                  <h4><span>Chapitre ${ch.code} :</span> ${ch.titre}</h4>
+                  ${ch.pb ? `<div class="plan-chap-pb">❓ <strong>Problème :</strong> ${ch.pb}</div>` : ''}
+                </div>
+                <div class="plan-chap-body">
+            `;
+
+            // Sections
+            (ch.sections || []).forEach(sec => {
+              const subPb = (sec.seances || []).find(s => s.q);
+              const secTrace = sec.trace || (tr && tr.sec && tr.sec[sec.code]);
+
+              html += `
+                <div class="plan-sec-item">
+                  <div class="plan-sec-title">
+                    <span>${sec.code} - ${sec.titre}</span>
+                  </div>
+                  ${(sec.pb || (subPb && subPb.q)) ? `
+                    <div class="plan-sub-pb">❓ <strong>Sous-problème :</strong> ${sec.pb || subPb.q}</div>
+                  ` : ''}
+
+                  <!-- Activités de la section -->
+                  <div style="display:flex; flex-direction:column; gap:0.4rem; margin-top:0.2rem;">
+              `;
+
+              (sec.seances || []).forEach(s => {
+                const uniqueId = `${state.level}_S${s.s}_idx0`;
+                html += `
+                  <div class="plan-act-row" onclick="selectSeance('${uniqueId}', true)" title="Cliquer pour voir la fiche détaillée de l'activité">
+                    <div class="plan-act-title">
+                      <span class="plan-act-badge">S${s.s} · ${s.h}h</span>
+                      <span>🔬 <strong>Activité :</strong> ${s.titre}</span>
+                    </div>
+                    <div style="font-size:0.75rem; font-weight:800; color:var(--pc); display:flex; align-items:center; gap:0.25rem;">
+                      <span>${s.type.toUpperCase()}</span>
+                      <span>↗</span>
+                    </div>
+                  </div>
+                `;
+              });
+
+              html += `</div>`;
+
+              // Trace écrite visée pour la section
+              if (secTrace) {
+                html += `
+                  <div class="plan-sec-trace">
+                    <strong>✍️ Trace écrite visée (Bilan) :</strong> ${secTrace}
+                  </div>
+                `;
+              }
+
+              html += `</div>`; // Fin plan-sec-item
+            });
+
+            // Bilan global du Chapitre
+            if (ch.trace || (tr && tr.bilan)) {
+              html += `
+                <div class="plan-chap-bilan">
+                  <div class="plan-chap-bilan-title">📌 Bilan institutionnel du chapitre (Trace écrite)</div>
+                  <div class="plan-chap-bilan-text">${ch.trace || tr.bilan}</div>
+                  ${(tr && tr.notions) ? `
+                    <div class="notion-row">
+                      ${tr.notions.map(n => `<span class="notion">${n}</span>`).join('')}
+                    </div>
+                  ` : ''}
+                </div>
+              `;
+            }
+
+            html += `
+                </div>
+              </div>
+            `; // Fin plan-chap-card
+          });
+
+          html += `
+                </div>
+              </div>
+            </div>
+          `; // Fin plan-part-card
+        });
+
+        html += `</div>`; // Fin plan-theme-block
+      });
+
+      html += `</div>`; // Fin plan-container
+      container.innerHTML = html;
+    }
+
+    function togglePlanPart(headerEl) {
+      headerEl.parentElement.classList.toggle("collapsed");
+    }
+
+    /* Copie textuelle intégrale du plan pour Pronote ou traitement de texte */
+    function copyPlanText() {
+      const data = window.PROG.levels[state.level];
+      if (!data) return;
+
+      const lines = [];
+      lines.push(`PLAN DÉTAILLÉ DE LA PROGRESSION — ${data.titre.toUpperCase()}`);
+      lines.push(`Fil conducteur : ${data.filRouge}\n`);
+
+      let flatPart = 0;
+      (data.themes || []).forEach(th => {
+        lines.push(`\n============================================================`);
+        lines.push(`THÈME : ${th.titre.toUpperCase()}`);
+        lines.push(`============================================================`);
+
+        (th.parties || []).forEach(pt => {
+          flatPart++;
+          lines.push(`\n>>> ${pt.titre.toUpperCase()}`);
+          lines.push(`Problématique générale : ${pt.problematique}`);
+
+          (pt.chapitres || []).forEach(ch => {
+            const trKey = `${flatPart}-${ch.code}`;
+            const tr = getTrace(trKey);
+
+            lines.push(`\n  Chapitre ${ch.code} : ${ch.titre}`);
+            if (ch.pb) lines.push(`  Problème : ${ch.pb}`);
+
+            (ch.sections || []).forEach(sec => {
+              lines.push(`\n    ${sec.code} - ${sec.titre}`);
+              const subPb = (sec.seances || []).find(s => s.q);
+              if (sec.pb || (subPb && subPb.q)) {
+                lines.push(`    Sous-problème : ${sec.pb || subPb.q}`);
+              }
+              (sec.seances || []).forEach(s => {
+                lines.push(`    * Activité (Semaine ${s.s} · ${s.h}h · [${s.type.toUpperCase()}]) : ${s.titre}`);
+              });
+              const secTrace = sec.trace || (tr && tr.sec && tr.sec[sec.code]);
+              if (secTrace) {
+                lines.push(`    * Trace écrite visée / Bilan : ${secTrace}`);
+              }
+            });
+
+            if (ch.trace || (tr && tr.bilan)) {
+              lines.push(`\n  [BILAN DU CHAPITRE] ${ch.trace || tr.bilan}`);
+            }
+            if (tr && tr.notions) {
+              lines.push(`  [NOTIONS CLÉS] ${tr.notions.join(', ')}`);
+            }
+          });
+        });
+      });
+
+      const textToCopy = lines.join('\n');
+      navigator.clipboard.writeText(textToCopy).then(() => {
+        showToast("Plan copié dans le presse-papier !");
+      }).catch(() => {
+        // Fallback
+        const ta = document.createElement("textarea");
+        ta.value = textToCopy;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        document.body.removeChild(ta);
+        showToast("Plan copié dans le presse-papier !");
+      });
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById("toastNotification");
+      if (!toast) return;
+      toast.textContent = msg;
+      toast.classList.add("show");
+      setTimeout(() => toast.classList.remove("show"), 2500);
+    }
+
+    function getCompLabel(code) {
+      const map = {
+        "D1.3": "Communiquer en langage scientifique (écrit, graphique, connecteurs)",
+        "D4.1": "Démarches scientifiques (hypothèse, témoin, modélisation)",
+        "D4.2": "Données chiffrées (calculs, temps de résidence, échelles)",
+        "D4.3": "Repérage spatial et cartographie (GPS, satellites, SIG)",
+        "D5": "Responsabilité citoyenne, éthique et environnement"
+      };
+      return map[code] || "Compétence disciplinaire";
+    }
+
+    /* Modales */
+    function openSkillsvtModal(actId) {
+      const act = window.PROG.activites[actId];
+      if (!act) return;
+
+      document.getElementById("modalTitle").textContent = `Fiche d'Investigation : ${act.titre}`;
+      const body = document.getElementById("modalBody");
+      body.innerHTML = `
+        <div style="background:var(--primary-light); padding:1rem; border-radius:8px; border-left:4px solid var(--primary);">
+          <strong>🎯 Problématique scientifique :</strong> ${act.problematique}
+        </div>
+
+        <div style="background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.25); border-radius:8px; padding:0.85rem;">
+          <div style="font-weight:700; color:#b91c1c; font-size:0.85rem; margin-bottom:0.25rem;">🚫 Obstacle épistémologique ciblé</div>
+          <div style="font-size:0.85rem;"><strong>Conception initiale fausse :</strong> ${act.obstacle.conception_fausse}</div>
+          <div style="font-size:0.85rem; color:#047857; margin-top:0.2rem;"><strong>Rupture didactique :</strong> ${act.obstacle.rupture_didactique}</div>
+        </div>
+
+        <div>
+          <div class="udl-tabs">
+            <button class="udl-tab-btn active" id="tabVoie1Btn" onclick="switchUdlTab('voie1')">Voie 1 : Tâche Complexe Autonome</button>
+            <button class="udl-tab-btn" id="tabVoie2Btn" onclick="switchUdlTab('voie2')">Voie 2 : Parcours Guidé Pas-à-Pas</button>
+          </div>
+
+          <div id="udlVoie1">
+            <div style="background:var(--card-bg); border:1px solid var(--border); border-radius:8px; padding:1rem;">
+              <h4 style="font-size:0.95rem; font-weight:800; color:var(--primary); margin-bottom:0.4rem;">${act.voie1_autonome.titre}</h4>
+              <p style="font-size:0.88rem; line-height:1.5;">${act.voie1_autonome.consigne}</p>
+            </div>
+
+            <div class="coups-pouce-accordion">
+              <div class="coup-card" onclick="toggleCoup(this)">
+                <div class="coup-head">💡 Coup de pouce Niveau 1 — Méthode <span>▼</span></div>
+                <div class="coup-body">${act.voie1_autonome.coups_de_pouce.niveau_1_methode}</div>
+              </div>
+              <div class="coup-card" onclick="toggleCoup(this)">
+                <div class="coup-head">🔍 Coup de pouce Niveau 2 — Indice <span>▼</span></div>
+                <div class="coup-body">${act.voie1_autonome.coups_de_pouce.niveau_2_indice}</div>
+              </div>
+              <div class="coup-card" onclick="toggleCoup(this)">
+                <div class="coup-head">📖 Coup de pouce Niveau 3 — Notion <span>▼</span></div>
+                <div class="coup-body">${act.voie1_autonome.coups_de_pouce.niveau_3_notion}</div>
+              </div>
+            </div>
+          </div>
+
+          <div id="udlVoie2" style="display:none;">
+            <div style="display:flex; flex-direction:column; gap:0.6rem;">
+              ${(act.voie2_guidee.etapes || []).map(e => `
+                <div style="background:var(--bg); border:1px solid var(--border); border-radius:8px; padding:0.75rem 1rem;">
+                  <div style="display:flex; justify-content:space-between; font-size:0.75rem; font-weight:700; color:var(--primary); margin-bottom:0.2rem;">
+                    <span>ÉTAPE ${e.id} [${e.competence}]</span>
+                    <span>${e.points} points</span>
+                  </div>
+                  <div style="font-size:0.88rem;">${e.consigne}</div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4 style="font-size:0.85rem; font-weight:800; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.5rem;">📄 Corpus documentaire authentique chiffré</h4>
+          <div class="docs-grid">
+            ${(act.documents || []).map(d => `
+              <div class="doc-box">
+                <div class="doc-title">${d.numero} : ${d.titre}</div>
+                <div style="font-size:0.85rem; line-height:1.45;">${d.contenu}</div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+
+        <div>
+          <h4 style="font-size:0.85rem; font-weight:800; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.4rem;">📊 Grille critériée d'évaluation (LSU)</h4>
+          <table class="lsu-table">
+            <thead>
+              <tr>
+                <th>Compétence</th>
+                <th class="lsu-mi">Maîtrise Insuffisante [MI]</th>
+                <th class="lsu-mf">Maîtrise Fragile [MF]</th>
+                <th class="lsu-ms">Maîtrise Satisfaisante [MS]</th>
+                <th class="lsu-tbm">Très Bonne Maîtrise [TBM]</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${Object.entries(act.grille_lsu || {}).map(([compKey, row]) => `
+                <tr>
+                  <td><strong>${compKey.replace('_', '.')}</strong></td>
+                  <td>${row.MI}</td>
+                  <td>${row.MF}</td>
+                  <td>${row.MS}</td>
+                  <td>${row.TBM}</td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>
+      `;
+
+      document.getElementById("skillsvtModal").classList.add("open");
+    }
+
+    function switchUdlTab(tab) {
+      document.getElementById("tabVoie1Btn").classList.toggle("active", tab === "voie1");
+      document.getElementById("tabVoie2Btn").classList.toggle("active", tab === "voie2");
+      document.getElementById("udlVoie1").style.display = tab === "voie1" ? "block" : "none";
+      document.getElementById("udlVoie2").style.display = tab === "voie2" ? "block" : "none";
+    }
+
+    function toggleCoup(card) {
+      card.classList.toggle("open");
+    }
+
+    function closeModal() {
+      document.getElementById("skillsvtModal").classList.remove("open");
+    }
+
+    function openPdfModal(uniqueId) {
+      const seances = getAllSeances(state.level);
+      const s = seances.find(item => item._meta.uniqueId === uniqueId);
+      if (!s) return;
+
+      const pdfList = (s.res || []).filter(r => r.startsWith("pdf:")).map(r => r.replace("pdf:", ""));
+      document.getElementById("pdfModalTitle").textContent = `Fiches PDF : ${s.titre}`;
+      
+      const body = document.getElementById("pdfModalBody");
+      body.innerHTML = `
+        <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:0.75rem;">
+          Les fichiers suivants sont situés dans votre dossier local <code>D:\\Cours 2026\\Progessions\\svt-2027\\pdf\\${state.level}\\</code> :
+        </p>
+        <div style="display:flex; flex-direction:column; gap:0.5rem;">
+          ${pdfList.map(f => `
+            <div style="background:var(--bg); border:1px solid var(--border); border-radius:8px; padding:0.75rem 1rem; display:flex; justify-content:space-between; align-items:center;">
+              <span style="font-weight:600; font-size:0.85rem;">📄 ${f}</span>
+              <a href="file:///D:/Cours%202026/Progessions/svt-2027/pdf/${state.level}/${encodeURIComponent(f)}" target="_blank" style="padding:0.35rem 0.75rem; background:#b91c1c; color:white; border-radius:6px; text-decoration:none; font-size:0.75rem; font-weight:700;">
+                Ouvrir PDF ↗
+              </a>
+            </div>
+          `).join('')}
+        </div>
+      `;
+
+      document.getElementById("pdfModal").classList.add("open");
+    }
+
+    function closePdfModal() {
+      document.getElementById("pdfModal").classList.remove("open");
+    }
+
+    // Launch
+    window.addEventListener("DOMContentLoaded", init);
+  </script>
+</body>
+</html>

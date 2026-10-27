@@ -1,0 +1,192 @@
+﻿## 5e
+P P1 Partie 1 — La Terre, planète habitable | attendus: Nommer les enveloppes concentriques et leurs caractéristiques ; Relier paramètres planétaires et présence d’eau liquide / de vie ; Identifier des preuves d’eau passée sur Mars ; Calculer des temps de résidence au tableur ; Expliquer la diffusion d’une pollution selon les réservoirs
+  C I La Terre, une planète formée d’enveloppes | Comment connaître l’intérieur d’une planète où personne n’est jamais allé ?
+     S A Les enveloppes concentriques de la Terre [1:Situation déclenchante : Perseverance cherche la vie sur Mars / 2:TP : granite, basalte, péridotite — « peser » les enveloppes]
+     S B Océans et continents [3:Comparer océans et continents : surfaces et altitudes]
+  C II Les conditions de l’habitabilité | Quelles conditions font d’une planète un lieu habitable, et pourquoi Mars ne l’est-elle plus ?
+     S A Atmosphère, pression, température et eau liquide [4:Tâche complexe : Mission Jezero — Mars a-t-elle pu être habitable ?]
+     S B Mars, une planète qui a perdu son eau [5:Enquête : les preuves d’une eau passée sur Mars]
+     S C La vie dans des conditions extrêmes [6:Vivre sans soleil : les sources hydrothermales des grands fonds]
+  C III Le cycle de l’eau, premier cycle biogéochimique | L’eau que nous buvons a peut-être déjà circulé dans l’océan pendant des millénaires : comment circule-t-elle et pourquoi certaines pollutions durent-elles si longtemps ?
+     S A Réservoirs et flux [6:Du bassin de l’Huveaune au cycle global de l’eau]
+     S B Temps de résidence et durabilité des réservoirs [7:Tableur : combien de temps une goutte reste-t-elle dans l’atmosphère ? dans l’océan ?]
+     S C Pollutions et apports de nutriments [8:Maquette : une pollution qui voyage dans une nappe / 8:Les fleuves nourrissent la mer : les blooms planctoniques]
+     S D Évaluation de la partie [9:Évaluation sommative (10 pts) : une planète habitable]
+P P2 Partie 2 — La Terre, planète dynamique | attendus: Distinguer météorologie et climat, du local au global ; Caractériser vents et courants à partir de données satellitaires ; Modéliser l’origine des mouvements (inégale répartition de l’énergie solaire) ; Identifier le couplage océan/atmosphère
+  C I Météo ou climat ? | Une journée de mistral glacial remet-elle en cause le réchauffement climatique ?
+     S A Du temps qu’il fait au climat local [10:La météo du collège face aux normales climatiques]
+     S B Les grandes zones climatiques [10:Les zones climatiques du globe]
+  C II Les mouvements des enveloppes fluides | Comment se déplacent l’air et l’eau à l’échelle du globe ?
+     S A La circulation atmosphérique [11:Lire le vent sur des cartes satellitaires]
+     S B Les courants océaniques [12:Les canards du Pacifique : cartographier les courants]
+  C III Le moteur des mouvements et le couplage océan-atmosphère | Quelle énergie met l’air et l’eau en mouvement, et comment ces deux enveloppes agissent-elles l’une sur l’autre ?
+     S A L’inégale répartition de l’énergie solaire [13:Modélisation : une lampe, un globe, des thermomètres]
+     S B Le couplage océan-atmosphère et les climats [14:Le vent entraîne l’océan : modèle et conséquences sur les climats / 14:Évaluation sommative (10 pts) : enveloppes fluides et climats]
+P P3 Partie 3 — Les interactions Terre-vivant | attendus: Localiser la biosphère et ses dimensions ; Identifier uni/pluricellulaires, cellules spécialisées, microbiote non humain ; Mettre en évidence et mesurer la respiration ; écrire son bilan ; Relier prélèvement d’O2, transport et utilisation ; Caractériser la multiplication asexuée et ses usages agricoles
+  C I La biosphère, une pellicule de vie | Où trouve-t-on la vie sur Terre ?
+     S A Dimensions et diversité des milieux de vie [15:Une maquette à l’échelle : la biosphère est-elle épaisse ?]
+  C II L’organisation des êtres vivants | Qu’ont en commun une levure, un chêne et un être humain ?
+     S A La cellule, unité du vivant [16:TP microscopie : unicellulaires et pluricellulaires]
+     S B Cellules spécialisées, tissus, organes, appareils [17:Des cellules spécialisées aux appareils]
+     S C Un microbiote indispensable (hors être humain) [18:Vache, termite, corail : des partenaires microscopiques]
+  C III Le métabolisme respiratoire | Tous les êtres vivants respirent-ils, et à quoi sert réellement la respiration ?
+     S A Mettre en évidence la respiration [18:Eau de chaux et êtres vivants : qui rejette du CO2 ?]
+     S B Mesurer la respiration cellulaire [19:ExAO / microcontrôleur : des levures avec et sans glucose]
+     S C Bilan et organes respiratoires [20:Le bilan de la respiration aérobie / 20:Branchies et circulation chez le poisson]
+  C IV La multiplication asexuée | Comment la renouée du Japon a-t-elle envahi les berges de nos rivières sans produire de graines ?
+     S A Un seul parent, des individus identiques [21:Stolons, tubercules, rhizomes : observer la multiplication asexuée]
+     S B Coloniser rapidement un milieu [22:Mettre en œuvre le bouturage / 22:Classe de terrain : cartographier une colonie clonale]
+     S C La multiplication asexuée dans l’agriculture [23:Clones agricoles : atouts et fragilités (la banane Cavendish)]
+     S D Bilan et évaluation [24:Carte mentale : le vivant dans la biosphère / 24:Évaluation sommative (10 pts) : organisation et fonctionnement du vivant]
+P P1 Partie 1 — L’activité physique | attendus: Identifier cerveau et moelle épinière dans la commande du mouvement ; Interpréter des paramètres physiologiques repos/effort ; Argumenter sur entraînement raisonné, surentraînement, dopage, sédentarité
+  C I La commande nerveuse du mouvement | Qui donne l’ordre à nos muscles de se contracter ?
+     S A Centres nerveux, nerfs et muscles [25:Étude de cas : quand la moelle épinière est atteinte]
+  C II Les adaptations de l’organisme à l’effort | Pourquoi notre cœur s’accélère-t-il et pourquoi s’essouffle-t-on pendant un effort ?
+     S A Mesurer les paramètres physiologiques [26:TP en co-intervention EPS : le cross du collège]
+     S B Satisfaire les besoins des muscles [27:Plus d’O2 et de nutriments pour les muscles]
+  C III Une activité physique raisonnée | S’entraîner pour progresser : jusqu’où peut-on aller sans danger ?
+     S A Capacités, limites, entraînement [28:Entraînement raisonné ou surentraînement ?]
+     S B Le dopage [28:Débat argumenté : l’affaire Festina (1998) et l’EPO]
+     S C Sédentarité et santé [29:Bouger 60 minutes par jour : défi de classe]
+     S D Évaluation [30:Évaluation sommative (10 pts) : l’organisme pendant l’effort]
+P P2 Partie 2 — Virus, micro-organismes et interactions avec l’être humain | attendus: Distinguer contamination et infection ; Choisir entre asepsie et antisepsie ; Relier type d’infection et traitement (antibiotique / antiviral) ; Expliquer les bénéfices individuels et collectifs de la vaccination (HPV)
+  C I Contamination et infection | Être en contact avec un microbe, est-ce forcément tomber malade ?
+     S A Les barrières naturelles et la contamination [30:Des micro-organismes sur nos mains ?]
+     S B De la contamination à l’infection [31:Multiplication des microbes et symptômes]
+  C II Lutter contre la contamination et l’infection | Antiseptique, antibiotique, antiviral, vaccin : quel moyen pour quelle situation ?
+     S A Asepsie et antisepsie [32:Semmelweis (1847) et le lavage des mains]
+     S B Antibiotiques et antiviraux [32:Décoder une ordonnance : antibiotique ou non ?]
+     S C La vaccination, protection individuelle et collective [33:Simulation d’épidémie : l’effet de la couverture vaccinale / 34:HPV : des faits pour décider (avec l’infirmière scolaire)]
+     S D Évaluation [34:Évaluation sommative (10 pts) : micro-organismes et santé]
+P P3 Partie 3 — Procréation humaine | attendus: Situer la production des cellules sexuelles ; Calculer le moment de l’ovulation (14 jours avant les règles) ; Reconstituer le trajet des cellules sexuelles et situer la fécondation ; Légender les appareils sexuels (clitoris compris)
+  C I Le fonctionnement des appareils sexuels | Que se passe-t-il dans les appareils sexuels à partir de la puberté ?
+     S A Anatomie des appareils sexuels [35:Légender et comparer les appareils sexuels]
+     S B Un fonctionnement continu et un fonctionnement cyclique [36:Les spermatozoïdes : une production continue / 36:Le cycle féminin : règles et ovulation]
+     S C Puberté et santé [37:La puberté : mise en route des appareils sexuels]
+  C II La formation d’une cellule-œuf | Où et comment les cellules sexuelles se rencontrent-elles ?
+     S A Le trajet des cellules sexuelles et la fécondation [38:Reconstituer le trajet des cellules sexuelles / 38:La cellule-œuf, première cellule d’un futur embryon]
+     S B Choisir d’avoir ou non un enfant [39:Premier niveau d’éducation au choix (EVARS)]
+     S C Bilan et évaluation [40:Schéma bilan : de la puberté à la cellule-œuf / 40:Évaluation sommative (10 pts) : procréation]
+P P1 Projets de fin d’année | attendus: Réinvestir les compétences de l’année
+  C I Réinvestissement | Comment mobiliser ce que l’on a appris ?
+     S A Projets [41:Classe de terrain : bilan des boutures et biodiversité du jardin / 42:Mini-congrès scientifique de la classe / 43:Forum des métiers des SVT / 44:Bilan annuel et passerelle vers la 4e]
+## 4e
+P P1 Partie 1 — La Terre, planète habitable : le cycle du carbone | attendus: Identifier les différentes formes chimiques du carbone dans ses réservoirs ; Donner des ordres de grandeur des temps de résidence et des flux ; Relier perturbations anthropiques des flux et réchauffement actuel
+  C I Les formes et réservoirs du carbone | Sous quelles formes trouve-t-on le carbone sur Terre et où est-il stocké ?
+     S A Les formes chimiques dans les grands réservoirs [1:Situation d’appel & TP : traquer le carbone dans la classe]
+     S B Flux et temps de résidence [2:Tâche complexe & Tableur : modéliser le cycle du carbone naturel]
+  C II L’impact des activités humaines sur le cycle | En quoi les activités humaines transforment-elles un cycle naturel équilibré en réchauffement climatique rapide ?
+     S A L’injection de carbone fossile dans l’atmosphère [3:Combustion des énergies fossiles et déséquilibre des flux]
+     S B Lien entre GES et hausse des températures globales [4:Tâche complexe : Climatologues du GIEC — corréler CO2 et anomalie thermique]
+     S C Évaluation du chapitre [5:Évaluation sommative (10 pts) : le cycle du carbone et le climat]
+P P2 Partie 2 — La Terre, planète dynamique : tectonique actuelle et risques | attendus: Identifier une frontière de plaques par les séismes et le volcanisme ; Mesurer convergence et divergence avec les données GPS actuelles ; Modéliser l’accumulation de contraintes sur une faille et la libération d’ondes ; Distinguer volcanismes effusif et explosif ; Distinguer aléa, vulnérabilité et risque ; exploiter le PPMS
+  C I La lithosphère découpée en plaques mobiles | Comment prouver aujourd’hui, avec les technologies modernes, que la surface de la Terre bouge ?
+     S A Frontières actives et découpage de la lithosphère [6:TP Tectoglob3D : cartographier les zones actives du globe]
+     S B Mesurer les déplacements actuels par balises GPS [7:Vecteurs GPS : convergence, divergence et coulissage en temps réel]
+  C II Séismes et volcanisme : l’énergie interne libérée | D’où provient l’énergie qui fracture la roche et alimente les éruptions volcaniques ?
+     S A L’origine des séismes : failles et ondes [8:TP Modélisation : contrainte sur une faille et rupture brutale]
+     S B Volcanisme effusif et explosif [9:TP Viscosité des magmas : Piton de la Fournaise vs Montagne Pelée]
+  C III Prévention et gestion des risques naturels | Comment vivre en sécurité sur une planète géologiquement active ?
+     S A Distinguer aléa, vulnérabilité et risque [10:Tâche complexe : Évaluer le risque sismique dans deux régions du monde]
+     S B Du risque géologique aux alertes météorologiques (PPMS) [11:Auditer le PPMS du collège face aux risques locaux]
+     S C Évaluation du thème géosciences [12:Évaluation sommative (10 pts) : tectonique, volcanisme et risques]
+P P3 Partie 3 — Les interactions Terre-vivant : métabolismes et écosystèmes | attendus: Mettre en évidence la photosynthèse, ses conditions et ses produits ; Caractériser les flux de sèves et les symbioses racinaires (mycorhizes) ; Comparer caryotypes et relier reproduction sexuée et brassage génétique ; Utiliser des IA d’identification (Pl@ntNet, BirdNET) avec esprit critique ; Identifier des interactions écosystémiques et des communications
+  C I La photosynthèse, moteur de la production primaire | Comment les cellules végétales fabriquent-elles de la matière organique à partir d’éléments minéraux ?
+     S A Conditions et produits de la photosynthèse [13:TP Démarche expérimentale : tester la présence d’amidon dans une feuille]
+     S B Les structures de prélèvement et de circulation des sèves [14:TP Microscopie : stomates, poils absorbants et vaisseaux conducteurs]
+     S C Symbioses racinaires et diversité des photosynthétiques [15:Des champignons alliés des arbres : les mycorhizes]
+  C II Reproduction sexuée et brassage génétique | Pourquoi des frères et sœurs issus des mêmes parents sont-ils tous uniques ?
+     S A Les cellules sexuelles et l’ADN chromosomique [16:Caryotypes et extraction d’ADN : le support de l’hérédité]
+     S B Le brassage de l’information génétique [17:Activité ludique de génétique : l’arbre des possibles]
+  C III Biodiversité, IA naturalistes et communication | Comment explorer et recenser la biodiversité de notre collège grâce à l’intelligence artificielle, et comment les espèces interagissent-elles ?
+     S A Classe de terrain avec IA naturalistes (Pl@ntNet & BirdNET) [18:Inventaire de terrain : Pl@ntNet et BirdNET aux abords du collège]
+     S B Interactions et communication dans l’écosystème [19:Quand les arbres s’alertent et les animaux communiquent]
+     S C Évaluation du thème vivant [20:Évaluation sommative (10 pts) : photosynthèse, génétique et écosystèmes]
+P P1 Partie 1 — Le fonctionnement de l’organisme : nutrition, transport et excrétion | attendus: Expliquer la transformation des aliments par enzymes et microbiote ; Légender les appareils digestif, respiratoire, circulatoire et urinaire ; Expliquer les échanges alvéolaires et la circulation sanguine ; Identifier le rôle des reins dans l’excrétion de l’urée ; Connaître le cadre légal du don d’organes et de sang
+  C I La digestion et l’allié microbiote | Que deviennent nos repas dans le tube digestif et pourquoi nos bactéries intestinales sont-elles indispensables ?
+     S A Digestion mécanique et enzymatique [21:TP Digestion in vitro de l’amidon par l’amylase]
+     S B Le microbiote intestinal et l’absorption des nutriments [22:Tâche complexe : Les souris axéniques et le rôle du microbiote]
+  C II Respiration, circulation et excrétion des déchets | Comment le dioxygène arrive-t-il aux cellules et comment le corps se débarrasse-t-il de ses déchets toxiques ?
+     S A Les échanges gazeux alvéolaires [23:L’air dans nos poumons : l’alvéole, surface d’échange vitale]
+     S B La circulation générale et le rein filtreur [24:TP Dissection du rein & schéma de la circulation générale]
+     S C Sensibilisation citoyenne : le don d’organes et de sang [25:Débat citoyen : la loi française sur le don d’organes]
+  C III La commande nerveuse et la protection des sens | Comment nos sens captent-ils l’environnement et comment nos comportements peuvent-ils les endommager ?
+     S A Du stimulus à la commande musculaire [26:TP Réflexe et nerf : disséquer le nerf sciatique]
+     S B Politiques publiques et protection des récepteurs sensoriels [27:Écouteurs, décibels et cellules ciliées : protéger son audition]
+     S C Évaluation du chapitre nutrition et systèmes [28:Évaluation sommative (10 pts) : nutrition, circulation et système nerveux]
+P P2 Partie 2 — Virus, micro-organismes et immunité | attendus: Relier santé humaine et diversité des microbiotes ; Identifier les phases de la phagocytose et le rôle des anticorps ; Expliquer le principe de la mémoire immunitaire et de la vaccination ; Comprendre les mécanismes du VIH/SIDA et les enjeux de santé publique
+  C I Le système immunitaire en action : phagocytose et anticorps | Comment nos globules blancs neutralisent-ils les envahisseurs ?
+     S A La phagocytose, réaction rapide non spécifique [28:Observation microscopique d’un frottis sanguin & la phagocytose]
+     S B Les anticorps et la neutralisation spécifique [29:L’expérience de Von Behring et le rôle des anticorps]
+  C II Mémoire immunitaire, vaccination et défi du VIH | Pourquoi ne fait-on certaines maladies qu’une seule fois et comment le VIH contourne-t-il nos défenses ?
+     S A La mémoire immunitaire et l’efficacité vaccinale [30:Tâche complexe : Analyser la cinétique des anticorps lors d’un rappel]
+     S B L’infection par le VIH et le syndrome du SIDA [31:Le VIH : un virus qui s’attaque au chef d’orchestre de l’immunité]
+     S C Évaluation immunologie [32:Évaluation sommative (10 pts) : réactions immunitaires et vaccination]
+P P3 Partie 3 — Procréation humaine, neurobiologie du plaisir et responsabilité | attendus: Expliquer le contrôle hormonal des gonades par le cerveau ; Identifier l’anatomie du clitoris et du pénis et relier zones érogènes et plaisir cérébral ; Relier mode d’action des contraceptifs et fonctionnement des appareils ; Comprendre et appliquer la notion de consentement et de respect mutuel
+  C I Le contrôle hormonal de la puberté et de la reproduction | Comment des hormones microscopiques produites par le cerveau règlent-elles le fonctionnement de nos organes sexuels ?
+     S A La communication hormonale entre cerveau et gonades [33:Expériences historiques : greffes et castrations chez les rongeurs]
+     S B La synchronisation hormonale du cycle féminin [34:Schéma fonctionnel animé : la régulation cyclique de l’ovaire et de l’utérus]
+  C II Neurobiologie du plaisir sexuel et anatomie érogène | Où et comment naît la sensation de plaisir sexuel dans notre corps et notre cerveau ?
+     S A L’anatomie du clitoris et du pénis : des structures homologues [35:Modèles anatomiques réels : redécouvrir le clitoris en 3 dimensions]
+     S B Le circuit cérébral de la récompense et du plaisir [36:Tâche complexe : Neurosciences — des capteurs sensoriels aux neurones du plaisir]
+  C III Contraception, protection et respect absolu du consentement | Comment vivre une sexualité épanouie, responsable, protégée et consentie ?
+     S A Les moyens de contraception et la protection contre les IST [37:Modes d’action des contraceptifs : bloquer l’ovulation ou la rencontre]
+     S B Le consentement : un accord libre, enthousiaste et révocable [38:Atelier EVARS : analyser des situations concrètes de consentement]
+     S C Évaluation sommative de fin de partie [39:Évaluation sommative (10 pts) : hormones, plaisir et contraception]
+P P1 Synthèse de cycle et orientation | attendus: Relier cycles géochimiques, flux du vivant et physiologie humaine
+  C I Projets et transition | Comment agir en citoyen éclairé ?
+     S A Projets de synthèse [40:Fresque du Carbone et du Climat de la classe / 41:Valorisation des femmes de sciences dans l’établissement / 42:Forum des métiers : géosciences, santé et biotechnologies / 43:Épreuve blanche DNB de fin d’année (10 pts) / 44:Bilan annuel, validation des compétences LSU et passerelle vers la 3e]
+## 3e
+P P1 Partie 1 — La Terre, planète dynamique : cycle des roches et ressources | attendus: Identifier les roches locales par des tests simples ; Décrire les étapes de formation d’une roche sédimentaire et le cycle des roches ; Distinguer ressources renouvelables et réserves non renouvelables ; Relier utilisation des réserves carbonées, réchauffement global et actions d’atténuation/adaptation
+  C I Les roches de notre environnement et le cycle sédimentaire | De quoi sont faites les roches qui nous entourent et comment se forment les roches sédimentaires ?
+     S A Les roches du bâti local et affleurements [1:Classe de terrain : les roches des façades et monuments du quartier]
+     S B Dégradation, transport et sédimentation [2:TP Démarche expérimentale : de l’altération à la sédimentation]
+     S C Le grand cycle des roches terrestres [3:Schéma bilan : le cycle reliant roches sédimentaires, magmatiques et métamorphiques]
+  C II Ressources géologiques, énergie et climat | Combien de temps la Terre a-t-elle mis pour fabriquer nos ressources, et pourquoi leur exploitation menace-t-elle l’équilibre climatique ?
+     S A Ressources renouvelables vs réserves non renouvelables [4:Tâche complexe : Pétrole, lithium, bois — comparer formation et consommation]
+     S B Combustion fossile, forçage thermique et océans [5:L’océan, accumulateur thermique et victime de l’acidification]
+     S C Évaluation géosciences et ressources [6:Évaluation sommative (10 pts) : cycle des roches et ressources]
+P P2 Partie 2 — Les interactions Terre-vivant : évolution, biodiversité et santé des écosystèmes | attendus: Reconstituer des paléoenvironnements et analyser une crise biologique majeure ; Expliquer l’évolution des populations par sélection naturelle et spéciation ; Argumenter sur les trames vertes/bleues/noires et le concept One Health ; Identifier les biotechnologies et solutions fondées sur la nature
+  C I Histoire de la Terre et crises de la biodiversité | Comment sait-on que la vie a profondément changé au cours des temps géologiques ?
+     S A Les archives fossiles et la succession des paléoenvironnements [7:Enquête paléontologique : faire parler les fossiles]
+     S B Une crise biologique majeure du passé face à la crise actuelle [8:Tâche complexe : La crise Crétacé-Paléogène (K-Pg, il y a 66 Ma)]
+  C II Les mécanismes de l’évolution : sélection naturelle et spéciation | Comment une espèce évolue-t-elle au fil des générations sans avoir l’intention de s’adapter ?
+     S A La sélection naturelle dans une population [9:La phalène du bouleau et les bactéries résistantes : tester la sélection]
+     S B L’isolement et la spéciation [10:Tâche complexe : Le moustique du métro de Londres (Culex molestus)]
+  C III Biodiversité, politiques publiques et One Health | Pourquoi la santé des humains dépend-elle directement de la santé des animaux et des forêts ?
+     S A Trames vertes, bleues et noires [11:Cartographie SIG : repérer la trame verte et noire autour du collège]
+     S B Biotechnologies et solutions fondées sur la nature [12:Quand la nature inspire l’ingénierie et la santé]
+     S C Évaluation évolution et biodiversité [13:Évaluation sommative (10 pts) : sélection naturelle et spéciation]
+P P1 Partie 1 — Le fonctionnement de l’organisme : neurosciences, émotions et addictions | attendus: Expliquer le fonctionnement d’une synapse et le rôle des neurotransmetteurs ; Relier plasticité cérébrale, répétition et sommeil dans les apprentissages ; Identifier l’origine biologique des émotions et leurs composantes ; Expliquer les mécanismes cérébraux des addictions (écrans, drogues, jeux) et des TCA
+  C I La synapse et le cerveau qui apprend | Comment l’information passe-t-elle d’un neurone à l’autre et comment notre cerveau se modifie-t-il quand on apprend ?
+     S A La communication synaptique chimique [14:TP Modélisation : la synapse chimique et ses neurotransmetteurs]
+     S B Plasticité cérébrale et consolidation par le sommeil [15:Tâche complexe : Neurosciences de l’apprentissage — le rôle clé du sommeil]
+  C II Origine biologique des émotions et compétences psychosociales | D’où viennent la peur, la joie, la colère et comment nos émotions s’expriment-elles dans notre corps ?
+     S A Composantes physiologiques et corporelles des émotions [16:Atelier CPS : mesurer les signaux corporels d’une émotion]
+     S B Régulation émotionnelle et compétences psychosociales [17:Identifier et réguler ses émotions pour vivre sereinement avec les autres]
+  C III Addictions, écrans et troubles des conduites alimentaires | Comment certaines molécules ou certains usages numériques prennent-ils le contrôle de notre volonté ?
+     S A Le piratage du circuit de la récompense par les drogues et écrans [18:Tâche complexe : Écrans, jeux vidéo, drogues — même mécanisme cérébral ?]
+     S B Troubles des conduites alimentaires (TCA) à l’adolescence [19:Alimentation et santé mentale : comprendre les TCA]
+     S C Évaluation neurosciences et santé [20:Évaluation sommative (10 pts) : synapse, sommeil et addictions]
+P P2 Partie 2 — Virus, micro-organismes : antibiorésistance et vaccination HPV | attendus: Interpréter un antibiogramme et mesurer les zones d’inhibition ; Relier antibiorésistance et sélection naturelle ; Expliquer l’origine de contamination des écosystèmes par les antibiotiques ; Relier infection par HPV, division cellulaire incontrôlée (cancer) et couverture vaccinale
+  C I L’antibiorésistance : quand la sélection naturelle menace nos soins | Pourquoi les antibiotiques ne fonctionnent-ils plus sur certaines souches bactériennes ?
+     S A Lecture et interprétation d’un antibiogramme [21:TP Mesure : tester l’efficacité de différents antibiotiques sur gélose]
+     S B Mécanisme évolutif et dispersion dans les écosystèmes [22:Tâche complexe : De l’étable à l’hôpital — la sélection des superbactéries]
+  C II Virus HPV, cancers et bouclier vaccinal | Comment un virus sexuellement transmissible peut-il provoquer un cancer des années plus tard, et comment l’éviter ?
+     S A Du virus HPV à la multiplication cellulaire cancéreuse [23:Quand un virus dérègle les chromosomes : la naissance d’un cancer]
+     S B Bénéfice de la couverture vaccinale : l’exemple australien [24:Tâche complexe & Épidémiologie : Comparer les politiques vaccinales dans le monde]
+     S C Évaluation microbiologie et santé publique [25:Évaluation sommative (10 pts) : antibiogramme et vaccination HPV]
+P P3 Partie 3 — Procréation humaine : génétique embryonnaire, bioéthique et consentement | attendus: Expliquer comment les cellules somatiques conservent le même caryotype (46 chromosomes) ; Décrire les échanges foeto-maternels au niveau du placenta et les risques toxiques ; Identifier les techniques médicales associées à la parentalité (PMA, IVG, IMG, pilule d’urgence) ; Identifier des situations où le consentement est absent ou invalide
+  C I De la cellule-œuf au fœtus : génétique et développement | Comment une cellule unique se multiplie-t-elle sans perdre son identité chromosomique et comment grandit le fœtus ?
+     S A La multiplication cellulaire conforme [26:TP Microscopie : les chromosomes lors de la multiplication cellulaire]
+     S B Le placenta : échanges vitaux et barrière perméable aux toxiques [27:Le cordon ombilical et le placenta : une frontière sous haute surveillance]
+     S C L’accouchement : le signal hormonal de la naissance [28:Neuf mois après : contractions utérines et mise au monde]
+  C II Bioéthique, techniques médicales de parentalité et consentement | Quelles réponses la médecine moderne apporte-t-elle au désir ou au refus de grossesse, et quelles sont les règles du consentement ?
+     S A Techniques médicales : PMA, IVG, IMG et contraception d’urgence [29:Parcours de santé : PMA, IVG et pilule d’urgence]
+     S B Le consentement sexuel valide et la loi [30:Atelier citoyen EVARS : identifier les critères d’un consentement valide]
+     S C Évaluation procréation et bioéthique [31:Évaluation sommative (10 pts) : génétique embryonnaire et bioéthique]
+P P1 Méthodologie Brevet et transition vers le lycée | attendus: Rédiger une argumentation scientifique complète avec connecteurs logiques ; Analyser des documents scientifiques inédits en autonomie
+  C I Annales et entraînement intensif DNB | Comment décrypter un sujet de Brevet inconnu et réussir en 30 minutes chrono ?
+     S A Sujets zéro et entraînements blancs [32:Entraînement DNB n°1 : Thème Climat et forçage océanique / 33:Entraînement DNB n°2 : Thème Génétique et drépanocytose / 34:Entraînement DNB n°3 : Thème Vaccination et système immunitaire / 35:Entraînement DNB n°4 : Thème Biodiversité passée et crise biologique]
+  C II Peer-review de classe et clôture du Cycle 4 | Comment les chercheurs valident-ils leurs découvertes et que retiendrons-nous de nos années collège ?
+     S A Atelier de publication par les pairs et grand bilan [36:Atelier d’épistémologie : la revue par les pairs (Peer-Review) en direct / 37:Table ronde : les sciences au lycée et les métiers de demain / 38:Brevet Blanc officiel de l’établissement (Épreuve commune) / 39:Correction personnalisée du Brevet Blanc et remédiation ciblée / 40:Grand bilan des concepts transversaux du Cycle 4 / 41:Projet de clôture : valorisation écologique du collège / 42:Session de révisions collectives flash pour le DNB / 43:Conseils méthodologiques et gestion du stress de l’examen / 44:Clôture du Cycle 4 : remise du passeport de compétences scientifiques]
